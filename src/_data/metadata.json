@@ -1,0 +1,23 @@
+{
+  "title": "edtorr",
+  "url": "https://example.com/",
+  "description": "I write about technology and data.",
+  "feed": {
+    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://example.com/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://example.com/feed/feed.json"
+  },
+  "author": {
+    "name": "Edwin Torres",
+    "email": "youremailaddress@example.com",
+    "url": "https://example.com/about-me/",
+    "twitter": "https://twitter.com/_edtorr/",
+    "linkedin": "https://www.linkedin.com/in/edwintorres/",
+    "github": "https://github.com/edwintorres/"
+  }
+}

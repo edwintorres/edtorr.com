@@ -1,0 +1,20 @@
+<!-- SEARCH -->
+<div class="widget">
+        <div class="input-group mb-3 border rounded">
+            <input id="mySearch" onclick="focusMethod()" oninput="mySearch()" type="text" name="s" class="form-control border-0" placeholder="{{ collections.t[locale].searchPlaceholder }}">
+            <button type="submit" class="input-group-text bg-transparent border-0" id="searchsubmit"><i class="uil uil-search"></i></button>
+        </div>
+</div>
+<!-- SEARCH -->
+
+<!-- SEARCH RESULT -->
+<div id="result-container" class="widget mb-4 pb-2" style="display: none;">
+    <h5 class="widget-title" style="margin-bottom: 0rem">Results</h5>
+    <span class="text-muted"><b></b> found <label id="totalItemsLabel">0</label> items</span>
+    <div class="mt-2 mb-4">
+        <div id="results">
+
+        </div>
+    </div>
+</div>
+<!-- SEARCH RESULT -->

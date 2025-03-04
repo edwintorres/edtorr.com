@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ locale or "en" }}">
+
+  {% include "shared/head.njk" %}
+
+  <body>
+
+    {{ content | safe }}
+
+    {% include "shared/footer.njk" %}
+
+    {% include "shared/back-to-top.njk" %}
+
+    {% include "shared/script.njk" %}
+
+  </body>
+</html>

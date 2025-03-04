@@ -1,0 +1,42 @@
+<div class="row">
+
+    {% for post in postslist | reverse %}
+
+        <div class="col-lg-6 col-md-12 mb-4 pb-2">
+            
+            <div class="card blog rounded border-0 shadow">
+                <div class="position-relative">
+                    
+                    {% img 
+                        input = post.data.headerImage | url,
+                        width = 356,
+                        alt = post.data.headerImageAlt,
+                        className = "card-img-top rounded-top"
+                    %}
+
+                    <div class="overlay rounded-top bg-dark"></div>
+                </div>
+                <div class="card-body content">
+                    <h5><a href="{{ post.url | url }}" class="card-title title text-dark">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a></h5>
+                    <div class="post-meta d-flex justify-content-between mt-3">
+                        <ul class="list-unstyled mb-0">
+                            <li class="list-inline-item me-2 mb-0"><i class="uil uil-calendar-alt"></i> {{ post.date | readableDate }}</li>
+                        </ul>
+                        <a href="{{ post.url | url }}" class="text-muted readmore">{{ collections.t[locale].readMore }} <i class="uil uil-angle-right-b align-middle"></i></a>
+                    </div>
+                </div>
+                <div class="author">
+                    <small class="text-light user d-block"><i class="uil uil-user"></i> {{ post.data.author }}</small>
+                    <small class="text-light user d-block"><i class="udi uil-tag"></i> 
+                        
+                        {{ post.data.tags | removeFirstElem }}
+
+                    </small>
+                    {# <small class="text-light date"><i class="uil uil-calendar-alt"></i> 13th August, 2019</small> #}
+                </div>
+            </div>
+        </div><!--end col-->
+
+    {% endfor %}
+
+</div><!--end row-->

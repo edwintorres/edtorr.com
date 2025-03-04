@@ -1,0 +1,18 @@
+<!-- TAG CLOUDS -->
+<div class="widget mt-4 pb-2">
+    <h5 class="widget-title">{{ collections.t[locale].tagsCloud }}</h5>
+    <div class="tagcloud mt-2">
+        {% for tag in collections.tagList %}
+        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+
+
+        <a href="{{ tagUrl | url }}" class="rounded">{{ tag }}</a>
+
+
+        {% endfor %}
+    </div>
+</div>
+<!-- TAG CLOUDS -->
+
+         
+
