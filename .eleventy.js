@@ -11,6 +11,7 @@ const moment = require("moment");
 const en = require("./src/_data/en");
 const es = require("./src/_data/es");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
+const imageProcess = require('./build/image-process');
 
 module.exports = function (eleventyConfig) {
   const langContent = { ...en, ...es };
@@ -95,9 +96,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // ✅ Shortcodes
-  eleventyConfig.addNunjucksAsyncShortcode("img", async (src, alt, className = "") => {
-    return `<img src="${src}" alt="${alt}" class="${className}">`;
-  });
+  eleventyConfig.addNunjucksAsyncShortcode('img', imageProcess);
 
   // ✅ Sass Processing (Dart Sass)
   eleventyConfig.on("beforeBuild", () => {
