@@ -2,6 +2,7 @@
 layout: layouts/base-header-profile.njk
 ---
 
+
 <link href="/assets/css/readme.css" rel="stylesheet" type="text/css" />
 
 <!-- Content-Section Start -->
@@ -13,13 +14,20 @@ layout: layouts/base-header-profile.njk
             <div class="col-lg-8 col-md-6">
 
                 <div class="card blog blog-detail border-0 shadow rounded">
+                    
                     <div class="card-body content">
+                        {% if toc %}
+                        
+                            {% if tocIntro %}
+                                <p>{{ tocIntro }}</p>
+                            {% endif %}
+                            <!-- TOC content would be inserted here -->
+                            
+                            <h3 class="">{{ collections.t[locale].toc }}</h3>
+                            {{ content | toc | safe }}  
 
-                        <p>{{ collections.t[locale].aboutMeIntro }}</p>
-                        
-                        <h3 class="">{{ collections.t[locale].toc }}</h3>
-                        {{ content | toc | safe }}  
-                        
+                        {% endif %}
+
                         {{ content | safe }}
                         
                     </div>

@@ -21,7 +21,8 @@ module.exports = {
         language: "Language",
         readMore: "Read More",
         morePosts: "More posts",
-        aboutMeIntro: "",
-        toc: "Table of Content"
+        aboutMe: "About me",
+        toc: "Table of Content",
+        resume: "Resume"
     }
   };

@@ -18,22 +18,19 @@
                             </div>
                             <!-- Categories --> #}
 
-
-                            {% include "shared/recent-posts.njk" %}
-
-
-                            {% include "shared/tags-cloud.njk" %}
-                            
                             <!-- SOCIAL -->
                             <div class="widget mt-4">
                                 <h5 class="widget-title">{{ collections.t[locale].followUs }}</h5>
                                 <ul class="list-unstyled social-icon mb-0 mt-2">
-                                    <li class="list-inline-item"><a href="{{ metadata.author.twitter }}" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
                                     <li class="list-inline-item"><a href="{{ metadata.author.linkedin }}" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
                                     <li class="list-inline-item"><a href="{{ metadata.author.github }}" class="rounded"><i data-feather="github" class="fea icon-sm fea-social"></i></a></li>
                                 </ul><!--end icon-->
                             </div>
                             <!-- SOCIAL -->
+
+                            {% include "shared/recent-posts.njk" %}
+
+                            {% include "shared/tags-cloud.njk" %}
 
                             <!-- LANGUAGE -->
                             <div id="widget-language" class="widget mt-4">
