@@ -4,7 +4,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
                     <div class="page-next-level">
-                        <h4 class="title"> {{ title or metadata.title }} </h4>
+                        <h2 class="title"> {{ title or metadata.title }} </h2>
+                        <ul class="list-unstyled mt-4 mb-0">
+                                <li class="list-inline-item h6 user text-muted me-2"><i class="mdi mdi-account"></i> {{ author }}</li>
+                                <li class="list-inline-item h6 date text-muted"><i class="mdi mdi-calendar-check"></i> {{ date | readableDate }}</li>
+                            </ul>
                         <div class="page-next">
 
                             {# <nav aria-label="breadcrumb" class="d-inline-block">

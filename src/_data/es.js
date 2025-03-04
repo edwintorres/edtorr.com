@@ -7,13 +7,13 @@ module.exports = {
         followUs: "Redes sociales",
         next: "Siguiente",
         prev: "Anterior",
-        heroCallout: "Hola, soy Edwin Torres. Escribo sobre mis intereses en",
-        heroSupport: "Comienza por las publicaciones más recientes o revisa mi README.",
-        typedMessage1: "tecnología.",
-        typedMessage2: "tecnología",
-        typedMessage3: "tecnología y datos",
-        typedMessage4: "tecnología",
-        typedMessage5: "tecnología, datos y personas.",
+        heroCallout: "Hola, soy Edwin Torres.",
+        heroSupport: "Trabajo en solucionar problemas reales y en mejorar la vida de las personas a través de la tecnología y los datos.",
+        typedMessage1: "",
+        typedMessage2: "",
+        typedMessage3: "",
+        typedMessage4: "",
+        typedMessage5: "",
         readme: "README",
         engineer: "Ingeniero",
         photoBy: "Foto por",
@@ -21,8 +21,9 @@ module.exports = {
         language: "Idioma",
         readMore: "Lee más",
         morePosts: "Más publicaciones",
-        aboutMeIntro: "Hi! Mi nombre es Edwin Torres o Edwin Torres Hernández o Edwin Torres-Hernandez o simplemente Edwin. Soy padre de dos hijos, boricua (puertorriqueño) y esposo de una ministra de la Iglesia Presbiteriana (EE. UU.). Mi lengua materna es el español, pero aprendí inglés cuando tenía veinte años. Mis pronombres son él/he.",
-        toc: "Tabla de Contenido"
+        aboutMe: "Sobre mi",
+        toc: "Tabla de Contenido",
+        resume: "Resumé"
 
     }
   };

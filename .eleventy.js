@@ -54,6 +54,12 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("removeFirstElem", (arr) => {
+    
+    // Ensure arr is an array and has at least one element
+    if (!Array.isArray(arr) || arr.length === 0) {
+        return arr; // Return the original value if it's null, undefined, or not an array
+    }
+
     return arr.slice(1);
   });
 
