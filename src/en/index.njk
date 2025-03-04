@@ -1,0 +1,28 @@
+---
+layout: layouts/home.njk
+templateClass: 
+eleventyNavigation:
+  key: Home
+  parent: en
+  order: 2
+locale: en
+translation: /es/
+---
+
+<div id="recent-posts" class="section-title mb-3">
+    <h4 class="title">{{ collections.t[locale].recentPosts }}</h4>
+</div>
+{% set maxPosts = collections.posts.length | min(2) %}
+{# <h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1> #}
+
+{% set postslist = collections.posts | head(-2) %}
+{% set postslistCounter = collections.posts | length %}
+{% include "shared/posts-list.njk" %}
+
+
+<p><a href="{{ './blog/' | url }}">{{ collections.t[locale].morePosts }} <i class="uil uil-angle-right-b align-middle"></i></a></p>
+
+
+
+
+
