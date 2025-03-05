@@ -24,6 +24,14 @@ jobs:
       - name: Build Site
         run: npm run build  # This uses the 'build' script from your package.json
 
+      - name: Setup SSH Key & Trust Host
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      
+
       - name: Deploy via SFTP
         uses: easingthemes/ssh-deploy@v4
         with:
