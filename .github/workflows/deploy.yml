@@ -27,10 +27,11 @@ jobs:
       - name: Setup SSH Key & Trust Host
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa_edtorr
+          chmod 600 ~/.ssh/id_rsa_edtorr
           ssh-keyscan -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-
+      
       - name: Deploy via Rsync
         run: |
-          rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/public_html/
+            rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/id_rsa_edtorr -o StrictHostKeyChecking=no" ./public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/public_html/
+        
