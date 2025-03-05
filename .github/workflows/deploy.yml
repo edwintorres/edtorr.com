@@ -1,0 +1,36 @@
+name: Build and Deploy Eleventy Site
+
+on:
+  push:
+    branches:
+      - main  # Adjust if your main branch has a different name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Ensure this matches your project's Node version
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Site
+        run: npm run build  # This uses the 'build' script from your package.json
+
+      - name: Deploy via SFTP
+        uses: easingthemes/ssh-deploy@v4
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
+          TARGET: /home/${{ secrets.SSH_USER }}/edtorr.com  # Adjust if needed
+          SOURCE: "./public/"  # Ensure this matches your Eleventy output directory
+      
