@@ -12,7 +12,10 @@ edtorr.com (Project Root)
 ├── src/en/  → English site
 │   ├── index.njk → layouts/home.njk
 │   │                 ├── extends →
-│   │                 ├── includes → 
+│   │                 ├── includes →
+│   ├── about.njk → layouts/about.njk
+│   │                 ├── extends →
+│   │                 ├── includes →
 │   ├── blog.njk  →  layouts/blog.njk
 │   │                 ├── extends → layouts/base-header-overlay.njk
 │   │                 │                 ├── extends → layouts/base.njk
@@ -24,7 +27,6 @@ edtorr.com (Project Root)
 │   │                 ├── includes → shared/posts-list.njk
 │   │                 ├── includes → shared/pagination-blog.njk
 │   ├── contact.njk → layouts/contact.njk  
-│   ├── about.njk → layouts/about.njk  
 │   ├── posts/  
 │
 ├── src/es/  → Spanish site  
