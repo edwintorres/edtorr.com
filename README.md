@@ -3,6 +3,34 @@
 
 ```
 edtorr.com (Project Root)
+├── index.html  → 🌎 Detects user language & redirects  
+│     ├── Detects `navigator.language`  
+│     ├── Checks against supported languages (`en`, `es`)  
+│     ├── Redirects to `/en/`, or `/es/`  
+│     ├── Defaults to `/en/` if language is unsupported  
+│
+├── src/en/  → English site  
+│   ├── blog.njk → layouts/blog.njk  
+│   ├── index.njk → layouts/home.njk  
+│   ├── contact.njk → layouts/contact.njk  
+│   ├── about.njk → layouts/about.njk  
+│   ├── posts/  
+│
+├── src/es/  → Spanish site  
+│   ├── blog.njk  →  layouts/blog.njk
+│   │                 ├── extends → layouts/base-header-overlay.njk
+│   │                 │                 ├── extends → layouts/base.njk
+│   │                 │                 │         ├── includes → shared/head.njk
+│   │                 │                 │         ├── includes → shared/header.njk
+│   │                 │                 │         ├── includes → shared/footer.njk
+│   │                 │                 ├── includes → shared/header-overlay.njk
+│   │                 │                 ├── includes → shared/footer.njk
+│   │                 ├── includes → shared/posts-list.njk
+│   │                 ├── includes → shared/pagination-blog.njk
+│   ├── index.njk → layouts/home.njk  
+│   ├── contact.njk → layouts/contact.njk  
+│   ├── about.njk → layouts/about.njk  
+│   ├── posts/  
 │
 ├── src/en/
 │   ├── blog.njk  →  layouts/blog.njk
