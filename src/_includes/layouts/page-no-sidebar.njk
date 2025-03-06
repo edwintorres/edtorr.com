@@ -1,0 +1,30 @@
+---
+layout: layouts/base-header-overlay.njk
+---
+
+<!-- Content-Section Start -->
+<section class="section">
+    <div class="container {% if templateClass %} {{ templateClass }}{% endif %}">
+        <div class="row">
+
+            <!-- Content Start -->
+            <div class="col-lg-12 col-md-12">
+
+                <div class="card blog blog-detail border-0 shadow rounded">
+                    <div class="card-body content">
+
+                        {{ content | safe }}
+                        
+                    </div>
+                </div>
+
+            </div><!--end col-->
+            <!-- Content End -->
+
+        </div><!--end row-->
+    </div><!--end container-->
+</section><!--end section-->
+<!-- Content-Section End -->
+
+
+
