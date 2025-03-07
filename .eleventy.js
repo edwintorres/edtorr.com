@@ -12,6 +12,7 @@ const en = require("./src/_data/en");
 const es = require("./src/_data/es");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
 const imageProcess = require('./build/image-process');
+const crypto = require("crypto");
 
 module.exports = function (eleventyConfig) {
   const langContent = { ...en, ...es };
@@ -61,6 +62,19 @@ module.exports = function (eleventyConfig) {
     }
 
     return arr.slice(1);
+  });
+
+  // ✅ File Hashing Filter
+  eleventyConfig.addFilter("hash", function (filepath) {
+    const fullPath = path.join(__dirname, "public", filepath);
+
+    if (fs.existsSync(fullPath)) {
+      const fileContent = fs.readFileSync(fullPath);
+      const hash = crypto.createHash("md5").update(fileContent).digest("hex").slice(0, 10);
+      return `${filepath}?v=${hash}`;
+    }
+
+    return filepath;
   });
 
   // ✅ Collections
