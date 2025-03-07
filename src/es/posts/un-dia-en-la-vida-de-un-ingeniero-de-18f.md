@@ -15,7 +15,7 @@ tags:
 translation: /en/blog/a-day-in-the-life-of-an-18f-engineer/
 ---
 
-*Esta entrada de blog fue originalmente publicada en el blog de 18F, ahora cerrado*
+*Este artículo fue publicado originalmente en el blog de 18F, el cual fue eliminado tras el cierre de la organización.*
 
 Según estimados del Censo, cerca de 41 millones de personas hablan español en Estados Unidos. Millones de estas personas no hablan o hablan muy poco inglés. Esta realidad le dificulta a muchos tener acceso a servicios del Gobierno; lo que resulta en más obstáculos para las comunidades hispanohablantes.
 
