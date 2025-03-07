@@ -117,16 +117,4 @@ if (document.getElementsByClassName('typed-personal').length > 0) {
     });
 }
 
-focusMethod = function getFocus() {
-    let searchElement = document.getElementById("mySearch");
-
-    if (!searchElement) return; // Prevent errors if element is missing
-
-    searchElement.scrollIntoView({ 
-        block: 'center',  // Keeps it in view with minimal movement
-        behavior: 'smooth' // Smooth scrolling for better UX
-    });
-
-    setTimeout(() => searchElement.focus(), 300);
-}
 

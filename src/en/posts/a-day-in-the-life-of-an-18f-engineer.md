@@ -15,7 +15,7 @@ tags:
 translation: /es/blog/un-dia-en-la-vida-de-un-ingeniero-de-18f/
 ---
 
-*This blog post was originally published on the now-closed 18F blog.*
+*This article was originally published on the 18F blog, which was taken offline following the organization's closure.*
 
 According to Census estimates, about 41 million people speak Spanish in the United States, and millions of these people speak little or no English. This reality creates a communication barrier that makes it difficult for many to access government services, resulting in more obstacles for Spanish-speaking communities.
 
