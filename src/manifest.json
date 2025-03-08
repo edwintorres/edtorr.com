@@ -1,6 +1,5 @@
 {
     "name": "edtorr.com",
-    "short_name": "edtorr",
     "description": "I build technology to create better solutions for people.",
     "start_url": "/",
     "display": "standalone",
