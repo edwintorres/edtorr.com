@@ -8,7 +8,7 @@ module.exports = {
         next: "Next",
         prev: "Previous",
         heroCallout: "Hi, I’m Edwin Torres.",
-        heroSupport: "I build technology to solve human problems.",
+        heroSupport: "I build technology to create better solutions for people.",
         typedMessage1: "",
         typedMessage2: "",
         typedMessage3: "",
