@@ -27,12 +27,12 @@
                 </div>
                 <div class="author">
                     <small class="text-light user d-block"><i class="uil uil-user"></i> {{ post.data.author }}</small>
+                    <small class="text-light date"><i class="uil uil-calendar-alt"></i> {{ post.data.date | readableDate }}</small>
                     <small class="text-light user d-block"><i class="udi uil-tag"></i> 
                         
                         {{ post.data.tags | removeFirstElem }}
 
                     </small>
-                    {# <small class="text-light date"><i class="uil uil-calendar-alt"></i> 13th August, 2019</small> #}
                 </div>
             </div>
         </div><!--end col-->
