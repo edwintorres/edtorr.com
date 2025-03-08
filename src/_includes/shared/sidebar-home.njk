@@ -1,0 +1,61 @@
+                <!-- START SIDEBAR -->
+                <div class="col-lg-4 col-md-6 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <div class="card border-0 sidebar sticky-bar rounded shadow">
+                        <div class="card-body">
+
+                            {% include "shared/search.njk" %}
+
+                            {# <!-- Categories -->
+                            <div class="widget mb-4 pb-2">
+                                <h5 class="widget-title">Categories</h5>
+                                <ul class="list-unstyled mt-4 mb-0 blog-categories">
+                                    <li><a href="jvascript:void(0)">Finance</a> <span class="float-end">13</span></li>
+                                    <li><a href="jvascript:void(0)">Business</a> <span class="float-end">09</span></li>
+                                    <li><a href="jvascript:void(0)">Blog</a> <span class="float-end">18</span></li>
+                                    <li><a href="jvascript:void(0)">Corporate</a> <span class="float-end">20</span></li>
+                                    <li><a href="jvascript:void(0)">Investment</a> <span class="float-end">22</span></li>
+                                </ul>
+                            </div>
+                            <!-- Categories --> #}
+
+                            <!-- SOCIAL -->
+                            <div class="widget mt-4">
+                                <h5 class="widget-title">{{ collections.t[locale].followUs }}</h5>
+                                <ul class="list-unstyled social-icon mb-0 mt-2">
+                                    <li class="list-inline-item"><a href="{{ metadata.author.linkedin }}" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
+                                    <li class="list-inline-item"><a href="{{ metadata.author.github }}" class="rounded"><i data-feather="github" class="fea icon-sm fea-social"></i></a></li>
+                                </ul><!--end icon-->
+                            </div>
+                            <!-- SOCIAL -->
+
+                            {# include "shared/recent-posts.njk" #}
+
+                            {% include "shared/tags-cloud.njk" %}
+
+                            <!-- LANGUAGE -->
+                            <div id="widget-language" class="widget mt-4">
+                                <h5 class="widget-title">{{ collections.t[locale].language }}</h5>
+                                {# <div class="btn-group dropdown-primary mt-2">
+                                    <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        English
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">English</a>
+                                        <a class="dropdown-item" href="#">Español</a>
+                                    </div>
+                                </div> #}
+                                <div id="translation" class="d-none">{{ translation }}</div>
+                                <div class="btn-group mt-1">
+									<button id="english-btn" type="button" class="btn btn-light btn-sm">English</button>
+									<button id="spanish-btn" type="button" class="btn btn-light btn-sm">Español</button>
+								</div>
+                            </div>
+                            <!-- LANGUAGE -->
+
+                        </div>
+                    </div>
+                </div><!--end col-->
+                <!-- END SIDEBAR -->
+
+
+                

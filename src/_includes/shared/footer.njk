@@ -6,7 +6,7 @@
                     <a href="#" class="logo-footer">
                         <img src="{{ '/assets/images/logo-light.png' | hash }}" height="24" alt="">
                     </a>
-                    <p class="mt-4">{{ collections.t[locale].heroCallout }} {{ collections.t[locale].typedMessage5 }}</p>
+                    <p class="mt-4 text-foot">{{ collections.t[locale].heroCallout }} {{ collections.t[locale].typedMessage5 }}</p>
 
                     <ul class="list-unstyled social-icon social mb-0 mt-4">
                         <li class="list-inline-item"><a href="{{ metadata.author.linkedin }}" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
@@ -21,7 +21,7 @@
                         {%- for entry in collections.all | eleventyNavigation(locale) %}
                         
                             <li>
-                                <a href="{{ entry.url | url }}" class="text-foot" style="color: #adb5bd;">
+                                <a href="{{ entry.url | url }}" class="text-foot" >
                                     <i class="uil uil-angle-right-b me-1"></i> {{ entry.title }}
                                 </a>
                             </li>
@@ -76,7 +76,7 @@
             <div class="row align-items-center">
                 <div class="col-sm-6">
                     <div class="text-sm-start">
-                        <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> | edtorr.com</p>
+                        <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> &nbsp;| edtorr.com</p>
                     </div>
                 </div><!--end col-->
 
