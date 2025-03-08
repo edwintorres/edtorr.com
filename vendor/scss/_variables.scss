@@ -7,8 +7,8 @@
 // Color
 $white:                     #ffffff;
 
-$primary:                   #2f55d4; //2f55d4
-$secondary:                 #5a6d90;
+$primary:                   #8c744a; //2f55d4
+$secondary:                 #7f838e; //#5a6d90;
 $success:                   #2eca8b;
 $warning:                   #f17425;
 $info:                      #17a2b8;
@@ -35,7 +35,7 @@ $bg-overlay-white:          rgba($white, 0.5);
 $shadow:                    0 0 3px rgba($dark,.15);
 $shadow-md:                 0 5px 13px rgba($dark, .2);
 $shadow-lg:                 0 10px 25px rgba($dark, 0.15);
-$footer:                    lighten($black, 6%);
+$footer:                    $dark; //lighten($black, 6%);
 
 // Base font
 $font-size-base:            16px;
