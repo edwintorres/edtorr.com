@@ -114,6 +114,7 @@ module.exports = function (eleventyConfig) {
     "vendor/js": "assets/vendor/js",
     "node_modules/fuse.js/dist/fuse.min.js": "assets/vendor/js/fuse.min.js",
     "src/.htaccess": ".htaccess",
+    "src/manifest.json": "manifest.json",
   });
 
   // ✅ Shortcodes
