@@ -1,53 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>edtorr.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>edtorr.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Open Graph Meta Tags (for Facebook, LinkedIn, etc.) -->
-    <meta property="og:title" content="Edwin Torres">
-    <meta property="og:description" content="Solving real-world problems through technology and data.">
-    <meta property="og:image" content="https://edtorr.com/assets/images/edtorr.png">
-    <meta property="og:url" content="https://edtorr.com">
-    <meta property="og:type" content="website">
+        <!-- Open Graph Meta Tags (for Facebook, LinkedIn, etc.) -->
+        <meta property="og:title" content="Edwin Torres">
+        <meta property="og:description" content="I build technology to create better solutions for people.">
+        <meta property="og:image" content="https://edtorr.com/assets/images/edtorr.png">
+        <meta property="og:url" content="https://edtorr.com">
+        <meta property="og:type" content="website">
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Edwin Torres">
-    <meta name="twitter:description" content="Solving real-world problems through technology and data.">
-    <meta name="twitter:image" content="https://edtorr.com/assets/images/edtorr.png">
-    <meta name="twitter:url" content="https://edtorr.com">
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Edwin Torres">
+        <meta name="twitter:description" content="I build technology to create better solutions for people.">
+        <meta name="twitter:image" content="https://edtorr.com/assets/images/edtorr.png">
+        <meta name="twitter:url" content="https://edtorr.com">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/images/edtorr.png">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="/assets/images/edtorr.png">
 
-    <!-- Preload main CSS for faster rendering -->
-    <link rel="preload" href="main.css" as="style">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+        <!-- Preload main CSS for faster rendering -->
+        <link rel="preload" href="main.css" as="style">
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css">
 
-    <!-- Defer JavaScript for better performance -->
-    <script defer src="main.js"></script>
+        <!-- Defer JavaScript for better performance -->
+        <script defer src="main.js"></script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const userLang = navigator.language || navigator.languages[0] || "en";
-            const langCode = userLang.substring(0, 2);
-            const currentPath = window.location.pathname;
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const userLang = navigator.language || navigator.languages[0] || "en";
+                const langCode = userLang.substring(0, 2);
+                const currentPath = window.location.pathname;
 
-            if (langCode === "es" && !currentPath.startsWith("/es")) {
-                window.location.href = "/es";
-            } else if (langCode !== "es" && !currentPath.startsWith("/en")) {
-                window.location.href = "/en";
-            }
-        });
-    </script>
-</head>
+                if (langCode === "es" && !currentPath.startsWith("/es")) {
+                    window.location.href = "/es";
+                } else if (langCode !== "es" && !currentPath.startsWith("/en")) {
+                    window.location.href = "/en";
+                }
+            });
+        </script>
+    </head>
 
-<body>
-    <!-- Future content can go here -->
-</body>
+    <body>
+        <!-- Future content can go here -->
+    </body>
 
-</html>
+    </html>
