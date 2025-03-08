@@ -10,7 +10,6 @@ const translation = () => {
 
         if (lang == "es") {
 
-            // document.getElementById("english-btn")
             document.getElementById("spanish-btn").classList.remove("btn-outline-primary");
             document.getElementById("spanish-btn").classList.add("btn-primary");
             document.getElementById("english-btn").onclick = () => {  window.location.replace(translationURL); }
