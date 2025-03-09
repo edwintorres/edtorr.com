@@ -6,7 +6,7 @@
  ## 📑 Table of Contents
 
 - [🛠 Technologies Used](#-technologies-used)
-- [🌍 Language Configuration](#-project-overview)
+- [🌍 Language Configuration](#-language-configuration)
 - [📂 Project Structure](#-project-structure)
 - [📌 How to Run Locally](#-how-to-run-locally)
 - [🌿 Branching Strategy](#-branching-strategy)
