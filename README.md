@@ -9,10 +9,10 @@
 - [🌍 Language Configuration](#-language-configuration)
 - [📂 Project Structure](#-project-structure)
 - [📌 How to Run Locally](#-how-to-run-locally)
-- [🌿 Branching Strategy](#-branching-strategy)
 - [🔑 Environment Variables](#-environment-variables)
   - [🏗️ Build Environment Variables](#️-build-environment-variables-used-for-eleventy-build)
   - [🚀 Deployment Environment Variables](#-deployment-environment-variables-used-by-github-actions)
+- [🌿 Branching Strategy](#-branching-strategy)
 - [🚀 Deployment](#-deployment)
 - [✨ Stay Connected](#-stay-connected)
 
