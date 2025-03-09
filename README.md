@@ -5,10 +5,9 @@
 
  ## 📑 Table of Contents
 
-- [🌍 Project Overview](#-project-overview)
-- [📂 Project Structure](#-project-structure)
 - [🛠 Technologies Used](#-technologies-used)
-- [🚀 Features](#-features)
+- [🌍 Language Configuration](#-project-overview)
+- [📂 Project Structure](#-project-structure)
 - [📌 How to Run Locally](#-how-to-run-locally)
 - [🌿 Branching Strategy](#-branching-strategy)
 - [🔑 Environment Variables](#-environment-variables)
@@ -25,7 +24,7 @@
 * HTML, CSS, JavaScript → Core web technologies
 * Markdown → Used for blog content
 
-## 🌍 Project Overview
+## 🌍 Language Configuration
 
 The site detects the user's preferred language and redirects them accordingly. Supported languages:
 
