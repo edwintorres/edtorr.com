@@ -2,8 +2,8 @@
 // variables.scss
 //
 
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Livvic:wght@400;500;600;700&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Livvic:wght@400;500;600;700&display=swap');
 // Color
 $white:                     #ffffff;
 
@@ -40,8 +40,8 @@ $footer:                    $dark; //lighten($black, 6%);
 // Base font
 $font-size-base:            16px;
 
-$font-family-base:          'Nunito', sans-serif;
-$font-family-secondary:     'Nunito', sans-serif;
+$font-family-base: "Segoe UI", "Trebuchet MS", Arial, sans-serif;
+$font-family-secondary: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 
 //Color Picker/Switcher
 $default:                   #2f55d4;

@@ -107,14 +107,15 @@ module.exports = function (eleventyConfig) {
 
   // ✅ Copy assets
   eleventyConfig.addPassthroughCopy({
-    "vendor/css": "assets/vendor/css",
     "src/assets/css": "assets/css",
-    "vendor/fonts": "assets/vendor/fonts",
     "src/assets/images": "assets/images",
+    "src/.htaccess": ".htaccess",
+    //vendor
+    "vendor/css/bootstrap.min.css": "assets/vendor/css/bootstrap.min.css",
+    "vendor/css/materialdesignicons.min.css": "assets/vendor/css/materialdesignicons.min.css",
+    "vendor/fonts": "assets/vendor/fonts",
     "vendor/js": "assets/vendor/js",
     "node_modules/fuse.js/dist/fuse.min.js": "assets/vendor/js/fuse.min.js",
-    "src/.htaccess": ".htaccess",
-    "src/manifest.json": "assets/manifest.json",
   });
 
   // ✅ Shortcodes
