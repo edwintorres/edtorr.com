@@ -787,3 +787,12 @@ $value in $colors {
         font-size: 36px !important;
     }
 }
+
+
+.list-inline-item-social-media {
+    display: inline-block
+}
+
+.list-inline-item-social-media:not(:last-child) {
+    margin-right: .5rem
+}
