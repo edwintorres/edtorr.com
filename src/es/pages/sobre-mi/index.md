@@ -14,7 +14,7 @@ eleventyNavigation:
   parent: es
   order: 3
 locale: es
-translation: /es/pages/about-me/
+translation: /en/pages/about-me/
 ---
 
 ### ¿Quién soy?
