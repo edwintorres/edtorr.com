@@ -1,0 +1,130 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workflows_ContactMe_name": {
+            "defaultValue": "ContactMe",
+            "type": "String"
+        },
+        "subscriptionId": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        },
+        "resourceGroupName": {
+            "type": "String"
+        },
+        "connections_excelonline_externalid": {
+            "defaultValue": "[concat('/subscriptions/',parameters('subscriptionId'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Web/connections/excelonline')]",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Logic/workflows",
+            "apiVersion": "2017-07-01",
+            "name": "[parameters('workflows_ContactMe_name')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "state": "Enabled",
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "$connections": {
+                            "defaultValue": {},
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "When_a_HTTP_request_is_received": {
+                            "type": "Request",
+                            "kind": "Http",
+                            "inputs": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "recaptchaToken": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "email",
+                                        "message",
+                                        "recaptchaToken"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "actions": {
+                        "Add_a_row_into_a_table": {
+                            "runAfter": {},
+                            "metadata": {
+                                "F9C3D093277AB750!934794": "/FormResponses.xlsx"
+                            },
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['excelonline']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "body": {
+                                    "name": "@triggerBody()?['name']",
+                                    "email": "@triggerBody()?['email']",
+                                    "message": "@triggerBody()?['message']",
+                                    "recaptchaToken": "@triggerBody()?['recaptchaToken']"
+                                },
+                                "path": "/codeless/v1.2/drives/me/items/@{encodeURIComponent('F9C3D093277AB750!934794')}/workbook/tables/@{encodeURIComponent('{0CB798D5-DEAA-4038-B189-699C52AFA74D}')}/rows",
+                                "queries": {
+                                    "source": "me"
+                                }
+                            }
+                        },
+                        "Respond_to_HTTP_request": {
+                            "runAfter": {
+                                "Add_a_row_into_a_table": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "Response",
+                            "inputs": {
+                                "statusCode": 200,
+                                "body": {
+                                    "message": "Form submitted successfully!"
+                                }
+                            }
+                        }
+                    },
+                    "outputs": {}
+                },
+                "parameters": {
+                    "$connections": {
+                        "type": "Object",
+                        "value": {
+                            "excelonline": {
+                                "id": "[concat('/subscriptions/', parameters('subscriptionId'), '/providers/Microsoft.Web/locations/', parameters('location') ,'/managedApis/excelonline')]",
+                                "connectionId": "[parameters('connections_excelonline_externalid')]",
+                                "connectionName": "excelonline"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
