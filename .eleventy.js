@@ -109,6 +109,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "src/assets/css": "assets/css",
     "src/assets/images": "assets/images",
+    "src/assets/images": "assets/images",
+    "src/assets/js/app.js": "assets/js/app.js",
+    "src/assets/js/contact.js": "assets/js/contact.js",
     "src/.htaccess": ".htaccess",
     //vendor
     "vendor/css/bootstrap.min.css": "assets/vendor/css/bootstrap.min.css",
