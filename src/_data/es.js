@@ -24,7 +24,8 @@ module.exports = {
         aboutMe: "Sobre mi",
         toc: "Tabla de Contenido",
         resume: "Resumé",
-        sendMessage: "Enviar mensaje"
+        sendMessage: "Enviar mensaje",
+        siteOpenSource: "Página de código abierto"
 
     }
   };

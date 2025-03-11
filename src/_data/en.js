@@ -24,6 +24,7 @@ module.exports = {
         aboutMe: "About me",
         toc: "Table of Content",
         resume: "Resume",
-        sendMessage: "Send message"
+        sendMessage: "Send message",
+        siteOpenSource: "This site is open source"
     }
   };

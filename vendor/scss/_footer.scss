@@ -38,6 +38,14 @@
     } 
     .text-foot {
         color: $gray-500;
+        a{
+            color: $gray-500;
+            transition: all 0.5s ease;
+            &:hover {
+                color: lighten($primary, 20%);
+            }
+        }
+        
     }
     .footer-list {
         margin-bottom: 0;

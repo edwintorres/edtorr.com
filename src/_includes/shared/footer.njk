@@ -76,13 +76,15 @@
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col-sm-6">
-                    <div class="text-sm-start">
-                        <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> &nbsp;| edtorr.com</p>
+                    <div class="text-sm-start text-foot">
+                        <p class="mb-0"><a href="{{ metadata.author.github }}" title="Github"><i data-feather="github" class="fea icon-sm fea-social"></i> {{ collections.t[locale].siteOpenSource }}</a> &nbsp;| <a href="/">edtorr.com</a></p>
                     </div>
                 </div><!--end col-->
+                
 
-                <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    {{ collections.t[locale].photoBy }} <a href="https://www.instagram.com/p/DCfdV24SOAj/" class="text-foot">edtorr</a> {{ collections.t[locale].on }} <a href="https://www.instagram.com/edtorr.nature" class="text-foot">Instagram</a>
+
+                <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0 text-foot">
+                    {{ collections.t[locale].photoBy }} <a href="https://www.instagram.com/p/DCfdV24SOAj/">edtorr</a> {{ collections.t[locale].on }} <a href="https://www.instagram.com/edtorr.nature" class="text-foot">Instagram</a>
                 </div><!--end col-->
             </div><!--end row-->
         </div><!--end container-->

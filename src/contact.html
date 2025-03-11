@@ -58,9 +58,9 @@
             const currentPath = window.location.pathname;
 
             if (langCode === "es" && !currentPath.startsWith("/es")) {
-                window.location.href = "/es";
+                window.location.href = "/es/pages/contactame/";
             } else if (langCode !== "es" && !currentPath.startsWith("/en")) {
-                window.location.href = "/en";
+                window.location.href = "/en/pages/contact-me/";
             }
         });
     </script>
@@ -132,7 +132,7 @@
                 <p>It seems JavaScript is not working. No worries, you're seeing this fallback content. Please choose
                     your language to continue.</p>
                 <div class="language-links">
-                    <a href="/en">Continue on English</a>
+                    <a href="/en/pages/contact-me/">Continue on English</a>
                 </div>
             </div>
 
@@ -141,7 +141,7 @@
                 <p>Parece que JavaScript no está funcionando. No te preocupes, estás viendo este contenido alternativo.
                     Por favor, selecciona tu idioma para continuar.</p>
                 <div class="language-links">
-                    <a href="/es">Continuar en Español</a>
+                    <a href="/es/pages/contactame/">Continuar en Español</a>
                 </div>
             </div>
 
