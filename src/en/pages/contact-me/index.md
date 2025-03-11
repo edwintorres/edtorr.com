@@ -56,7 +56,7 @@ templateClass: tmpl-post
     </div><!--end row-->
     <div class="row">
         <div class="col-sm-12">
-            <input type="submit" id="submit" name="send" class="btn btn-primary" value="Send Message">
+            <input type="submit" id="submit" name="send" class="btn btn-primary" value="{{ collections.t[locale].sendMessage }}">
         </div><!--end col-->
     </div><!--end row-->
 </form>
