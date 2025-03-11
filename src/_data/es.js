@@ -23,7 +23,8 @@ module.exports = {
         morePosts: "Más publicaciones",
         aboutMe: "Sobre mi",
         toc: "Tabla de Contenido",
-        resume: "Resumé"
+        resume: "Resumé",
+        sendMessage: "Enviar mensaje"
 
     }
   };

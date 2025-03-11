@@ -23,6 +23,7 @@ module.exports = {
         morePosts: "More posts",
         aboutMe: "About me",
         toc: "Table of Content",
-        resume: "Resume"
+        resume: "Resume",
+        sendMessage: "Send message"
     }
   };
