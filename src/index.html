@@ -49,7 +49,17 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
 
     <!-- Defer JavaScript for better performance -->
-    <script defer src="main.js"></script>
+    <!-- <script defer src="main.js"></script> -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5HZMBG9DM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-T5HZMBG9DM');
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
