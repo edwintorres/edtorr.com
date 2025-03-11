@@ -3,7 +3,7 @@ title: Un dia en la vida de un ingeniero de 18F
 description: 
 date: 2021-09-30
 author: Edwin Torres
-headerImage: /assets/images/blog/18F/pr.jpg
+headerImage: /assets/images/blog/18F/2021.jpg
 headerImageAlt: 
 eleventyNavigation:
   key: Blog
