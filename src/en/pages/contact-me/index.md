@@ -16,9 +16,6 @@ locale: en
 translation: /es/pages/contactame/
 templateClass: tmpl-post
 ---
-
-
-
 <div id="alert-form" >
 </div>
 <form id="contactForm">
@@ -60,58 +57,5 @@ templateClass: tmpl-post
         </div><!--end col-->
     </div><!--end row-->
 </form>
+<script src="{{ '/assets/js/contact.js' | hash }}"></script>
 
-
-<script>
-
-    document.addEventListener('DOMContentLoaded', () => {
-        // Hide the alert box initially
-        const alertBox = document.getElementById('alert-form');
-        alertBox.style.display = 'none';
-    });
-
-    document.getElementById('contactForm').addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        // Get the alert element
-        const alertBox = document.getElementById('alert-form');
-        
-        // Build the payload from form inputs
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value,
-            recaptchaToken: document.getElementById('recaptchaToken').value
-        };
-
-        try {
-            const response = await fetch('https://edtorrapim.azure-api.net/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-
-            if (response.ok) {
-                // Show success alert
-                alertBox.innerHTML = `
-                    <div class="alert alert-success alert-dismissible fade show"><strong>Well done!</strong> You successfully read this important alert message.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                `;
-            } else {
-                throw new Error(`Network response was not ok: ${response.status}`);
-            }
-        } catch (error) {
-            // Show error alert
-            alertBox.innerHTML = `
-                <div class="alert alert-danger alert-dismissible fade show mb-0"><strong>Oh snap!</strong> Change a few things up and try submitting again.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-            `;
-        }
-
-        // Display the alert box
-        alertBox.style.display = 'block';
-    });
-
-</script>

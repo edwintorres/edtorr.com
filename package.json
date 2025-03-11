@@ -6,7 +6,7 @@
     "build": "NODE_ENV=production eleventy",
     "build:staging": "eleventy --watch",
     "watch": "eleventy --watch",
-    "serve": "NODE_ENV=production eleventy --serve",
+    "serve": "eleventy --serve",
     "start": "eleventy --serve",
     "debug": "DEBUG=* eleventy"
   },
