@@ -6,11 +6,6 @@
   <title>{{ title or metadata.title }}</title>
   <meta name="description" content="{{ description or metadata.description }}">
 
-  <!-- Accessibility & UI Improvements -->
-  <meta name="theme-color" content="#ffffff">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="{{ '/assets/images/favicon/ms-icon-144x144.png' | hash }}">
-
   <!-- Open Graph Meta Tags (for Facebook, LinkedIn, etc.) -->
   <meta property="og:title" content="Edwin Torres">
   <meta property="og:description" content="I build technology to create better solutions for people.">
@@ -37,9 +32,10 @@
 
   <!-- ✅ FAVICONS FOR ALL DEVICES -->
   <!-- Standard Favicon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon/favicon-16x16.png' | hash }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon/favicon-32x32.png' | hash }}">
-  <link rel="icon" type="image/png" sizes="96x96" href="{{ '/assets/images/favicon/favicon-96x96.png' | hash }}">
+  <link rel="icon" type="image/png" sizes="16x16"   href="{{ '/assets/images/favicon/favicon-16x16.png' | hash }}">
+  <link rel="icon" type="image/png" sizes="32x32"   href="{{ '/assets/images/favicon/favicon-32x32.png' | hash }}">
+  <link rel="icon" type="image/png" sizes="96x96"   href="{{ '/assets/images/favicon/favicon-96x96.png' | hash }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/images/favicon/android-icon-144x144.png' | hash }}">
   <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/images/favicon/android-icon-192x192.png' | hash }}">
 
   <!-- Apple Touch Icons (iOS, macOS) -->
