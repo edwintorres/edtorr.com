@@ -113,6 +113,7 @@ module.exports = function (eleventyConfig) {
     //vendor
     "vendor/css/bootstrap.min.css": "assets/vendor/css/bootstrap.min.css",
     "vendor/css/materialdesignicons.min.css": "assets/vendor/css/materialdesignicons.min.css",
+    "vendor/css/prism-base16-monokai.dark.css": "assets/vendor/css/prism-base16-monokai.dark.css",
     "vendor/fonts": "assets/vendor/fonts",
     "vendor/js": "assets/vendor/js",
     "node_modules/fuse.js/dist/fuse.min.js": "assets/vendor/js/fuse.min.js",
