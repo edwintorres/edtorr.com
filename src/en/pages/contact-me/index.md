@@ -52,10 +52,20 @@ templateClass: tmpl-post
         </div>
     </div><!--end row-->
     <div class="row">
-        <div class="col-sm-12">
-            <input type="submit" id="submit" name="send" class="btn btn-primary" value="{{ collections.t[locale].sendMessage }}">
+        <div class="col-sm-12" >
+            <div class="d-flex align-items-center">
+                <div>
+                    <input type="submit" id="submit" name="send" class="btn btn-primary" value="{{ collections.t[locale].sendMessage }}">
+                </div>
+                <div id="loading-btn">
+                    <div class="spinner-border text-primary m-2" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
         </div><!--end col-->
     </div><!--end row-->
+
 </form>
 <script src="{{ '/assets/js/contact.js' | hash }}"></script>
 

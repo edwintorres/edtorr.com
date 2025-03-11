@@ -2,13 +2,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hide the alert box initially
     const alertBox = document.getElementById('alert-form');
     alertBox.style.display = 'none';
+
+    const loadingSpinner = document.getElementById('loading-btn');
+    loadingSpinner.style.display = 'none';
+    
 });
 
 document.getElementById('contactForm').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    // Get the alert element
+    // Get the alert and spinner element
     const alertBox = document.getElementById('alert-form');
+    const loadingSpinner = document.getElementById('loading-btn');
+
+    loadingSpinner.style.display = 'block';
+    loadingSpinner.innerHTML = `
+                      <div class="spinner-border text-primary m-2" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>`;
     
     // Build the payload from form inputs
     const formData = {
@@ -29,6 +40,8 @@ document.getElementById('contactForm').addEventListener('submit', async (event) 
 
         if (response.ok) {
             // Show success alert
+            loadingSpinner.style.display = 'none';
+            loadingSpinner.innerHTML = '';
             alertBox.innerHTML = `
                 <div class="alert alert-success alert-dismissible fade show"><strong>Brilliant!</strong> Your message was successfully submitted to the vortex of the universe. 
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
@@ -40,6 +53,7 @@ document.getElementById('contactForm').addEventListener('submit', async (event) 
         }
     } catch (error) {
         // Show error alert
+        loadingSpinner.innerHTML = '';
         alertBox.innerHTML = `
             <div class="alert alert-danger alert-dismissible fade show mb-0"><strong>I'm Sorry, I'm So Sorry</strong> Something went a bit wibbly-wobbly. Tweak a few bits and try submitting again.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
