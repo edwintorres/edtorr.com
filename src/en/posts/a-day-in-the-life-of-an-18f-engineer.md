@@ -4,7 +4,7 @@ description:
 date: 2021-09-30
 author: Edwin Torres
 headerImage: /assets/images/blog/18F/2022.jpg
-headerImageAlt: 
+headerImageAlt: Close-up of a man in a black jacket with a serious expression, standing in front of the U.S. Capitol, with the American flag waving behind him.
 eleventyNavigation:
   key: Blog
   parent: Archive
