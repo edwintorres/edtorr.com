@@ -16,6 +16,9 @@ locale: en
 translation: /es/pages/contactame/
 templateClass: tmpl-post
 ---
+<p>
+    The quickest way to reach me is via <a href="{{ metadata.author.linkedin }}" target="_blank" title="Linkedin">LinkedIn <i data-feather="linkedin" class="fea icon-x-sm fea-social"></i></a>  (yes, seriously). If it's something public, you can find me on <a href="{{ metadata.author.bluesky }}" target="_blank" title="Linkedin">Bluesky <i data-feather="bluesky" class="fea icon-x-sm fea-social"></i></a>. For a more private message, just fill out the form below, and I'll get back to you as soon as possible.
+</p>
 <div id="alert-form" >
 </div>
 <form id="contactForm">
@@ -43,7 +46,7 @@ templateClass: tmpl-post
         </div><!--end col-->
         <div class="col-md-12">
             <div class="mb-3">
-                <label class="form-label">Comments: <span class="text-danger">*</span></label>
+                <label class="form-label">Message: <span class="text-danger">*</span></label>
                 <div class="form-icon position-relative">
                     <i data-feather="message-circle" class="fea icon-sm icons"></i>
                     <textarea name="message" id="message" rows="4" class="form-control ps-5" placeholder="Your message..." required></textarea>

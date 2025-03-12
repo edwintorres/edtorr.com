@@ -705,6 +705,11 @@ $value in $colors {
 //Feather Icon
 .fea {
     stroke-width: 1.8;
+    &.icon-x-sm {
+        height: 15px;
+        width: 15px;
+        vertical-align: baseline;
+    }
     &.icon-sm {
         height: 16px;
         width: 16px;
