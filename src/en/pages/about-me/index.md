@@ -21,3 +21,5 @@ templateClass: tmpl-post
 I’m Edwin, a software and data engineer with over 17 years of experience in the government and private sectors. I’ve built my career leading teams, optimizing systems, and developing user-focused digital solutions. I’m passionate about transforming complex challenges into practical, scalable solutions. My journey includes key government projects, high-impact launches, and leadership roles that blend technical expertise with strategic vision—all with the goal of making a real, positive impact.
 
 Beyond work, I live in Puerto Rico, where I balance my passion for technology with family, fitness, and financial independence. My mornings start early with workouts, audiobooks, and personal growth, setting the tone for the rest of the day. I’m also involved in real estate, continuous learning, and exploring emerging technologies like AI. Whether it’s discussing leadership, innovation, or the next big investment, I’m always open to new ideas and collaborations.
+
+If you're interested in connecting or collaborating, feel free to <a href="/en/pages/contact-me/">reach out</a>. Otherwise, explore <a href="/en/blog/">my blog</a> for more.

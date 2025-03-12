@@ -16,6 +16,9 @@ locale: es
 translation: /en/pages/contact-me/
 templateClass: tmpl-post
 ---
+<p>
+    La forma más rápida de contactarme es a través de <a href="{{ metadata.author.linkedin }}" target="_blank" title="LinkedIn">LinkedIn <i data-feather="linkedin" class="fea icon-x-sm fea-social"></i></a> (sí, en serio). De manera pública, puedes encontrarme en <a href="{{ metadata.author.bluesky }}" target="_blank" title="Bluesky">Bluesky <i data-feather="bluesky" class="fea icon-x-sm fea-social"></i></a>. Para un mensaje más privado, completa el formulario a continuación y te responderé lo antes posible.
+</p>
 <div id="alert-form" >
 </div>
 <form id="contactForm">
@@ -43,7 +46,7 @@ templateClass: tmpl-post
         </div><!--end col-->
         <div class="col-md-12">
             <div class="mb-3">
-                <label class="form-label">Comentarios: <span class="text-danger">*</span></label>
+                <label class="form-label">Mensaje: <span class="text-danger">*</span></label>
                 <div class="form-icon position-relative">
                     <i data-feather="message-circle" class="fea icon-sm icons"></i>
                     <textarea name="message" id="message" rows="4" class="form-control ps-5" placeholder="Tu mensaje..." required></textarea>
