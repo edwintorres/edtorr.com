@@ -4,7 +4,7 @@ description:
 date: 2021-09-30
 author: Edwin Torres
 headerImage: /assets/images/blog/18F/2021.jpg
-headerImageAlt: 
+headerImageAlt: Smiling man with long dark hair, wearing a gray '18F' t-shirt, standing with arms crossed in a tech-filled workspace with multiple monitors displaying space-themed images.
 eleventyNavigation:
   key: Blog
   parent: Archive
