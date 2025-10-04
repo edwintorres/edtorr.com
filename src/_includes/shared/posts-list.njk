@@ -5,8 +5,7 @@
         <div class="col-lg-6 col-md-12 mb-4 pb-2">
             
             <div class="card blog rounded border-0 shadow">
-                <div class="position-relative">
-                    
+                <a href="{{ post.url | url }}" class="position-relative d-block stretched-link" aria-label="{{ post.data.title | default('Read post') }}">
                     {% img 
                         input = post.data.headerImage | url,
                         width = 356,
@@ -15,7 +14,7 @@
                     %}
 
                     <div class="overlay rounded-top bg-dark"></div>
-                </div>
+                </a>
                 <div class="card-body content">
                     <h5><a href="{{ post.url | url }}" class="card-title title text-dark">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a></h5>
                     <div class="post-meta d-flex justify-content-between mt-3">
