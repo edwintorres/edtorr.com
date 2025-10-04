@@ -2,7 +2,7 @@
 layout: layouts/readme.njk
 title: About me
 author: Edwin Torres
-date: 2025-03-04
+date: 2025-10-03
 description: Edwin Torres
 toc: false
 tocIntro: ""
@@ -18,8 +18,15 @@ templateClass: tmpl-post
 ---
 
 ### Who am I?
-I’m Edwin, a software and data engineer with over 17 years of experience in the government and private sectors. I’ve built my career leading teams, optimizing systems, and developing user-focused digital solutions. I’m passionate about transforming complex challenges into practical, scalable solutions. My journey includes key government projects, high-impact launches, and leadership roles that blend technical expertise with strategic vision—all with the goal of making a real, positive impact.
 
-Beyond work, I live in Puerto Rico, where I balance my passion for technology with family, fitness, and financial independence. My mornings start early with workouts, audiobooks, and personal growth, setting the tone for the rest of the day. I’m also involved in real estate, continuous learning, and exploring emerging technologies like AI. Whether it’s discussing leadership, innovation, or the next big investment, I’m always open to new ideas and collaborations.
+With over 18 years of experience across government and private sectors, I am a Software & Data Engineering Leader who builds systems that serve people. My focus is on guiding teams, designing scalable platforms, and delivering data and AI solutions that amplify human impact.
+
+At 18F, I led engineering efforts for agencies such as the USDA and the White House, mentoring engineers, refining processes, removing blockers, and advancing security compliance (NIST, ATO). My work included introducing CI/CD pipelines, shaping hiring guidelines for the U.S. Digital Corps, and driving high-profile projects like the AmeriCorps ACC.gov launch and the open-sourcing of the Piipan Azure/.NET platform.
+
+When 18F was closed in 2025, I transitioned to the private sector. That path led me to Edulogika, where I was entrusted to refactor and scale their data platform to support smoother onboarding and future growth.
+
+Today, as AI and Data Delivery Manager, I lead both Data and AI teams, bringing them together at the heart of delivery. My mission hasn’t changed: whether in public service or the private sector, I aim to design secure, resilient, and human-centered systems that empower teachers, amplify their impact, and ultimately serve the public good.
+
+Beyond work, I live in Puerto Rico, where I balance my passion for technology with family life and a strong focus on mental and physical health. My days start early with workouts, audiobooks, and reflection, building the discipline and clarity that carry me through the rest of the day. I’m also active in real estate, committed to continuous learning, and curious about emerging technologies. Whether it’s a conversation on leadership, innovation, or the next big investment, I’m always open to sharing ideas and building connections.
 
 If you're interested in connecting or collaborating, feel free to <a href="/en/pages/contact-me/">reach out</a>. Otherwise, explore <a href="/en/blog/">my blog</a> for more.

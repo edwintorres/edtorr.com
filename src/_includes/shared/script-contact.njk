@@ -1,2 +1,12 @@
     <!-- JS Contact Includes -->
+    {% set contactConfig = metadata.contactForm %}
+    {% if contactConfig and contactConfig.recaptchaSiteKey %}
+    <script>
+        window.contactFormConfig = {
+            endpoint: "{{ contactConfig.endpoint | default('/api/contact.php') }}",
+            recaptchaSiteKey: "{{ contactConfig.recaptchaSiteKey }}"
+        };
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render={{ contactConfig.recaptchaSiteKey }}"></script>
+    {% endif %}
     <script src="{{ '/assets/js/contact.js' | hash }}"></script>
