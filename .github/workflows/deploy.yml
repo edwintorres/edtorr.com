@@ -35,7 +35,7 @@ jobs:
 
       - name: Deploy via Rsync (Sync & Remove Deleted Files)
         run: |
-              rsync -avz --delete -e "ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/id_rsa_edtorr -o StrictHostKeyChecking=no" ./public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/edtorr.com/
+              rsync -avz --delete --exclude 'api/' -e "ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/id_rsa_edtorr -o StrictHostKeyChecking=no" ./public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/edtorr.com/
         
       - name: Post-Deploy Cleanup
         run: ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/id_rsa_edtorr -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /home/${{ secrets.SSH_USER }}/edtorr.com && touch .deploy-done"
