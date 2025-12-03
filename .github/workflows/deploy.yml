@@ -24,6 +24,9 @@ jobs:
       - name: Build Site
         run: npm run build  # Uses the "build" script from package.json
 
+      - name: Copy Narval to public
+        run: cp -r static/narval public/narval
+
       - name: Setup SSH Key & Trust Host
         run: |
           mkdir -p ~/.ssh
