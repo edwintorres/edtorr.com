@@ -17,7 +17,7 @@ layout: layouts/base-header-profile.njk
                         {%- include "md/en/readme-intro.md" -%}
                         {% endmarkdown %}
                         
-                        <h3 class="">Table of Content</h3>
+                        <h3 class="">{{ collections.t[locale].toc }}</h3>
                         {{ content | toc | safe }}  
                         
                         {{ content | safe }}

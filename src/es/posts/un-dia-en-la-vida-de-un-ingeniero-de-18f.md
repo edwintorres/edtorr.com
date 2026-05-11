@@ -1,6 +1,6 @@
 ---
 title: Un dia en la vida de un ingeniero de 18F
-description: 
+description: Un día en la vida de un ingeniero bilingüe en 18F, construyendo servicios de gobierno accesibles para los millones de hispanohablantes en Estados Unidos.
 date: 2021-09-30
 author: Edwin Torres
 headerImage: /assets/images/blog/18F/2021.jpg

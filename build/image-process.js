@@ -79,7 +79,11 @@ module.exports = ({ input, width, alt, lazy, className = 'shadow-black-transpare
             createWebp(paths.webpPath2x, retinaWidth)
         ] : []))
             .then((info) => {
-                const baseImage = info[0];
+                const baseImage = info && info[0];
+                if (!baseImage) {
+                    console.warn('Skipping lazy image render; sharp produced no base output for', input);
+                    return '';
+                }
                 return lazyImage({ width: baseImage.width, height: baseImage.height });
             })
             .catch((error) => console.error('Error in lazy image: ', error));
@@ -93,7 +97,11 @@ module.exports = ({ input, width, alt, lazy, className = 'shadow-black-transpare
         createWebp(paths.webpPath2x, retinaWidth)
     ] : []))
         .then((info) => {
-            const baseImage = info[0];
+            const baseImage = info && info[0];
+            if (!baseImage) {
+                console.warn('Skipping eager image render; sharp produced no base output for', input);
+                return '';
+            }
             return eagerImage({ width: baseImage.width, height: baseImage.height });
         })
         .catch((error) => console.error('Error in eager image: ', error));
