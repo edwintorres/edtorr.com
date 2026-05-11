@@ -4,7 +4,19 @@ layout: layouts/base.njk
 
     {% include "shared/navbar-header-overlay.njk" %}
 
-    {% include "shared/hero.njk" %}
+    {% if heroType == "home" %}
+      {% set heroPartial = "shared/hero-home.njk" %}
+    {% elif heroType == "overlay" %}
+      {% set heroPartial = "shared/hero-header-overlay.njk" %}
+    {% elif heroType == "profile" %}
+      {% set heroPartial = "shared/hero-profile.njk" %}
+    {% else %}
+      {% set heroPartial = "shared/hero.njk" %}
+    {% endif %}
+    {% include heroPartial %}
 
     {{ content | safe }}
 
+    {% if heroType == "home" %}
+        {% include "shared/script-home.njk" %}
+    {% endif %}

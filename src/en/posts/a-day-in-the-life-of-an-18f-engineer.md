@@ -1,6 +1,6 @@
 ---
 title: A day in the life of an 18F Engineer
-description: 
+description: A day in the life of a bilingual engineer at 18F, building accessible government services for the millions of Spanish-speakers in the United States.
 date: 2021-09-30
 author: Edwin Torres
 headerImage: /assets/images/blog/18F/2022.jpg
