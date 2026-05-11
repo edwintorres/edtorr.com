@@ -4,6 +4,10 @@ AddType application/json .json
 # 301 redirects for stale draft URLs of the Implementation Plan post
 Redirect 301 /en/blog/implementation-plans-specs-that-stay-alive/ /en/blog/implementation-plans-how-to-keep-context/
 Redirect 301 /en/blog/the-implementation-plan:-how-to-keep-context-when-ai-codes-faster-than-you-can-think/ /en/blog/implementation-plans-how-to-keep-context/
+Redirect 301 /en/blog/no-gaps-ever-the-ip-system-behind-a-solo-founder-monorepo/ /en/blog/implementation-plans-how-to-keep-context/
+Redirect 301 /en/blog/no-gaps-ever-an-introduction-to-the-implementation-plan-system/ /en/blog/implementation-plans-how-to-keep-context/
+Redirect 301 /en/blog/the-implementation-plan-system-as-memory/ /en/blog/implementation-plans-how-to-keep-context/
+Redirect 301 /en/blog/when-documentation-stopped-fighting-me/ /en/blog/implementation-plans-how-to-keep-context/
 Redirect 301 /es/blog/planes-de-implementacion-especificaciones-que-permanecen-vivas/ /es/blog/planes-de-implementacion-como-mantener-el-contexto/
 
 # 301 redirects for tag pages that only existed for the renamed draft

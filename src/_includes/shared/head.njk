@@ -111,6 +111,7 @@
   <!-- Web App Manifest (For PWA and Android) -->
   <link rel="manifest" href="{{ '/assets/images/favicon/manifest.json' | hash }}">
 
+  {% if env.isProduction %}
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5HZMBG9DM"></script>
   <script>
@@ -120,5 +121,6 @@
 
     gtag('config', 'G-T5HZMBG9DM');
   </script>
+  {% endif %}
 
 </head>
