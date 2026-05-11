@@ -6,19 +6,24 @@
   <title>{{ title or metadata.title }}</title>
   <meta name="description" content="{{ description or metadata.description }}">
 
+  {% set socialImage = headerImage if headerImage else '/assets/images/og_image.jpg' %}
+  {% set socialTitle = title or metadata.title or 'Edwin Torres' %}
+  {% set socialDescription = description or metadata.description or 'I build technology to create better solutions for people.' %}
+  {% set socialUrl = page.url | absoluteUrl(metadata.url) %}
+
   <!-- Open Graph Meta Tags (for Facebook, LinkedIn, etc.) -->
-  <meta property="og:title" content="Edwin Torres">
-  <meta property="og:description" content="I build technology to create better solutions for people.">
-  <meta property="og:image" content="https://edtorr.com/assets/images/og_image.jpg">
-  <meta property="og:url" content="https://edtorr.com">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ socialTitle }}">
+  <meta property="og:description" content="{{ socialDescription }}">
+  <meta property="og:image" content="{{ socialImage | absoluteUrl(metadata.url) }}">
+  <meta property="og:url" content="{{ socialUrl }}">
+  <meta property="og:type" content="{{ 'article' if tags and 'posts' in tags else 'website' }}">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Edwin Torres">
-  <meta name="twitter:description" content="I build technology to create better solutions for people.">
-  <meta name="twitter:image" content="https://edtorr.com/assets/images/og_image.jpg">
-  <meta name="twitter:url" content="https://edtorr.com">
+  <meta name="twitter:title" content="{{ socialTitle }}">
+  <meta name="twitter:description" content="{{ socialDescription }}">
+  <meta name="twitter:image" content="{{ socialImage | absoluteUrl(metadata.url) }}">
+  <meta name="twitter:url" content="{{ socialUrl }}">
 
   <!-- Preload Key Resources -->
   <link rel="preload" href="{{ '/assets/vendor/css/style.css' | hash }}" as="style">
