@@ -5,8 +5,8 @@ date: 2026-05-12
 layout: layouts/post-header-overlay.njk
 permalink: /en/blog/what-an-implementation-plan-looks-like/index.html
 author: Edwin Torres
-headerImage: /assets/images/blog/ip-series/implementation-plans-hero.jpg
-headerImageAlt: A black beach cruiser bicycle parked on the sand at golden hour, ocean and soft cloud horizon behind it.
+headerImage: /assets/images/blog/ip-series/what-an-implementation-plan-looks-like-hero.jpg
+headerImageAlt: A red Eurocopter EC130 helicopter (N131GC) parked on the desert floor of the Grand Canyon, towering red-rock cliffs rising in the background at dusk.
 eleventyNavigation:
   key: Blog
   parent: Archive
@@ -19,7 +19,7 @@ tags:
 translation: /es/blog/como-se-ve-un-plan-de-implementacion/
 ---
 
-Yesterday I wrote about *why* an `IP` (Implementation Plan) beats letting context collapse session by session. Two people asked me what one actually looks like.
+I wrote [previously](/en/blog/implementation-plans-how-to-keep-context/) about *why* an `IP` (Implementation Plan) beats letting context collapse session by session. Two people asked me what one actually looks like.
 
 Fair question. "Memory beats generation" is a principle. The template is the artifact that does the work.
 
