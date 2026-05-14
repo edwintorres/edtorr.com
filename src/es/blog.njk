@@ -8,11 +8,12 @@ eleventyNavigation:
 locale: es
 translation: /en/blog/
 pagination:
-  data: collections.posts
+  data: collections.posts_es
   size: 6
+  reverse: true
 ---
 
-{% set postslist = pagination.items %}
+{% set postslist = pagination.items | reverse %}
 {% include "shared/posts-list.njk" %}
 
 {% include "shared/pagination-blog.njk" %}
