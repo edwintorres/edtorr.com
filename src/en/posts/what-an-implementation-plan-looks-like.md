@@ -23,7 +23,7 @@ I wrote [previously](/en/blog/implementation-plans-how-to-keep-context/) about *
 
 Fair question. "Memory beats generation" is a principle. The template is the artifact that does the work.
 
-I put a slim version up at **github.com/edwintorres/ip-templates** — two files: `TEMPLATE.md` for a new IP, and `README.md` for the process around it. Around a hundred lines each. Drop them into `docs/ip/` in any repository and you can start writing today.
+I put a slim version up at **github.com/edwintorres/ip-templates**. Two files: `TEMPLATE.md` for a new IP, and `README.md` for the process around it. Around a hundred lines each. Drop them into `docs/ip/` in any repository and you can start writing today.
 
 ---
 
@@ -35,15 +35,15 @@ A **metadata table** with a stable ID, status, dates, and a target. This is what
 
 An **overview** in three bullets: problem, solution, key benefits. If you cannot state the problem clearly in one sentence, you are not ready to hand this to an AI agent. Stop and think more.
 
-An **architecture diagram** — before/after for refactors, target state and data flow for new features. ASCII is fine. One picture is enough.
+An **architecture diagram**: before/after for refactors, target state and data flow for new features. ASCII is fine. One picture is enough.
 
-A **task tracker** with IDs in the form `XXX-PPTT` — IP number, phase, task. The IDs become how phases reference each other, how commit messages cite the work, and how a resumed session points at a half-finished checkpoint.
+A **task tracker** with IDs in the form `XXX-PPTT`: IP number, phase, task. The IDs become how phases reference each other, how commit messages cite the work, and how a resumed session points at a half-finished checkpoint.
 
 **Phases.** Each phase has a goal in one sentence, tasks, a test you write *before* the code, and a checkpoint that proves the phase is done.
 
-**ADRs** — but only when there were two viable options and the choice was non-obvious. Single-option decisions get a one-line note. Forcing yourself to choose between "ADR or no ADR" sharpens what counts as a real architectural decision.
+**ADRs**, but only when there were two viable options and the choice was non-obvious. Single-option decisions get a one-line note. Forcing yourself to choose between "ADR or no ADR" sharpens what counts as a real architectural decision.
 
-**Files to implement** — a directory tree with a total count. This is where IPs reveal scope creep before it happens.
+**Files to implement**: a directory tree with a total count. This is where IPs reveal scope creep before it happens.
 
 ```
 src/
@@ -83,7 +83,7 @@ A green build alone is not sufficient. The build can pass while the new code is 
 
 I have been using the IP system on a Minecraft mod I am building, partly because it is a domain where AI code assistants are notoriously confident and notoriously wrong. The Fabric API renames classes between versions. The registry pattern moved between Minecraft 1.19 and 1.20. `Item.Properties.setId` in 1.21 did not exist before. Without an IP that names the version and constrains the agent, the model guesses from training data and produces code that compiles against nothing.
 
-`IP-002` adds an ore block and its drop item. The task tracker lists fourteen tasks — register the block, register the item, create the textures, create the model JSONs, write the loot table, add the block tags. Each task closes one gap. The files-to-implement section makes the surface explicit:
+`IP-002` adds an ore block and its drop item. The task tracker lists fourteen tasks: register the block, register the item, create the textures, create the model JSONs, write the loot table, add the block tags. Each task closes one gap. The files-to-implement section makes the surface explicit:
 
 ```
 src/main/java/com/arcaniummod/arcanium/
@@ -108,7 +108,7 @@ src/main/resources/
 Total: 1 source file + 2 test files + 10 resource files
 ```
 
-The agent works through them in order. After task `002-02` (register the item), two new unit tests verify the item is in the registry, that the BlockItem points at the right block, and that the static field exposes the same instance the registry returns. The tests fail first — that is the gate. The code goes in. The tests pass. The commit lands.
+The agent works through them in order. After task `002-02` (register the item), two new unit tests verify the item is in the registry, that the BlockItem points at the right block, and that the static field exposes the same instance the registry returns. The tests fail first. That is the gate. The code goes in. The tests pass. The commit lands.
 
 The next session that picks up `002-03` does not need to re-explain what was done. It reads the IP, sees the tasks marked Done, and continues.
 
