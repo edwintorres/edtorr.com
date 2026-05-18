@@ -478,11 +478,58 @@ $value in $colors {
     }
 }
 
+// Syntax-highlighted code blocks: extra left padding for line numbers,
+// per-line counters rendered via CSS (see addCodeLineSpans in .eleventy.js).
+pre[class*="language-"] {
+    padding: 1rem 1.25rem 1rem 3.5rem !important;
+    counter-reset: ln-line;
+    overflow-x: auto;
+}
+
+pre.ln-numbered .ln-line {
+    display: block;
+    position: relative;
+    counter-increment: ln-line;
+}
+
+pre.ln-numbered .ln-line::before {
+    content: counter(ln-line);
+    position: absolute;
+    left: -2.5rem;
+    width: 1.75rem;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.35);
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+    pointer-events: none;
+}
+
 //blockquote
 .blockquote {
-    border-left: 3px solid $gray-300;
-    border-radius: 6px;
-    font-size: 16px;
+    border-left: 4px solid $primary;
+    padding: 0.6rem 1.5rem 0.9rem;
+    margin: 1.75rem 0;
+    font-style: italic;
+    font-size: 1.05em;
+    line-height: 1.65;
+    color: $gray-700;
+    background: $light;
+    border-radius: 0 6px 6px 0;
+
+    p { margin-bottom: 0.5rem; }
+    p:last-child { margin-bottom: 0; }
+
+    &::before {
+        content: "\201C";
+        display: block;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.2rem;
+        line-height: 0.7;
+        color: $primary;
+        opacity: 0.55;
+        margin: 0 0 -0.35rem -0.25rem;
+        font-style: normal;
+    }
 }
 
 //Form

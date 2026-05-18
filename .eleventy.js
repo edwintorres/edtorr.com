@@ -19,7 +19,11 @@ module.exports = function (eleventyConfig) {
 
   // ✅ Plugins
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  eleventyConfig.addPlugin(pluginSyntaxHighlight, {
+    // Use real newlines between lines (default is "<br>"). Required for the
+    // addCodeLineSpans transform below to split lines correctly.
+    lineSeparator: "\n",
+  });
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ["h3", "h4"],
@@ -120,6 +124,7 @@ module.exports = function (eleventyConfig) {
     "src/assets/images": "assets/images",
     "src/assets/js/app.js": "assets/js/app.js",
     "src/assets/js/contact.js": "assets/js/contact.js",
+    "src/assets/js/tiny-agent.js": "assets/js/tiny-agent.js",
     "src/.htaccess": ".htaccess",
     //vendor
     "vendor/css/bootstrap.min.css": "assets/vendor/css/bootstrap.min.css",
@@ -153,8 +158,62 @@ module.exports = function (eleventyConfig) {
     permalinkBefore: true,
   });
 
+  // Attach Bootstrap's `.blockquote` class to every markdown blockquote so it
+  // picks up the site's styling instead of rendering as a bare element.
+  markdownLibrary.renderer.rules.blockquote_open = function (tokens, idx, options, env, self) {
+    tokens[idx].attrJoin("class", "blockquote");
+    return self.renderToken(tokens, idx, options);
+  };
+
+  // Open external links in a new tab with safe rel attributes. Internal
+  // links (relative paths) are left alone.
+  const defaultLinkOpen = markdownLibrary.renderer.rules.link_open ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
+  markdownLibrary.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+    const token = tokens[idx];
+    const hrefIndex = token.attrIndex("href");
+    if (hrefIndex >= 0) {
+      const href = token.attrs[hrefIndex][1];
+      if (/^https?:\/\//i.test(href)) {
+        token.attrSet("target", "_blank");
+        token.attrSet("rel", "noopener noreferrer");
+      }
+    }
+    return defaultLinkOpen(tokens, idx, options, env, self);
+  };
+
   eleventyConfig.setLibrary("md", markdownLibrary);
   eleventyConfig.addPairedShortcode("markdown", (content) => markdownLibrary.render(content));
+
+  // Add per-line spans to syntax-highlighted code blocks so CSS counters
+  // can render line numbers without shipping a client-side Prism plugin.
+  // Handles prettier's multi-line <pre> tag formatting.
+  eleventyConfig.addTransform("addCodeLineSpans", function (content, outputPath) {
+    if (!outputPath || !outputPath.endsWith(".html")) return content;
+    return content.replace(
+      /(<pre[^>]*?class="language-[^"]+"[^>]*?>)([\s\S]*?)(<\/pre>)/g,
+      (match, preOpen, body, preClose) => {
+        const codeMatch = body.match(/^(\s*<code[^>]*>)([\s\S]*?)(<\/code>\s*)$/);
+        if (!codeMatch) return match;
+        const [, codeOpen, codeContent, codeClose] = codeMatch;
+
+        const lines = codeContent.split("\n");
+        if (lines.length > 1 && lines[lines.length - 1] === "") lines.pop();
+        const numbered = lines
+          .map((line) => `<span class="ln-line">${line || " "}</span>`)
+          .join("");
+
+        const finalPreOpen = preOpen.replace(
+          /class="(language-[^"]+)"/,
+          'class="$1 ln-numbered"'
+        );
+
+        return `${finalPreOpen}${codeOpen}${numbered}${codeClose}${preClose}`;
+      }
+    );
+  });
 
   // ✅ Transform
   eleventyConfig.addTransform("minify", require("./build/transforms/minify"));
