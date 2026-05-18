@@ -1,11 +1,11 @@
 ---
 title: "AI Agents in Simple Terms"
-description: "The word agent has lost most of its meaning. The fastest way to get it back is to look at one in code. Three pieces, one short file."
+description: "AI agents sound like something only large companies can build. They are not. Here is the whole thing: an LLM, tools, and a loop, in TypeScript you can read in one screen."
 date: 2026-05-16
 layout: layouts/post-header-overlay.njk
-permalink: /en/blog/what-an-agent-is-in-30-lines-of-typescript/index.html
+permalink: /en/blog/ai-agents-in-simple-terms/index.html
 author: Edwin Torres
-headerImage: /assets/images/blog/what-an-agent-is-in-30-lines-of-typescript-hero.jpg
+headerImage: /assets/images/blog/ai-agents-in-simple-terms-hero.jpg
 headerImageAlt: A turquoise BOGA stand-up paddleboard resting diagonally on warm beach sand at golden hour.
 eleventyNavigation:
   key: Blog
@@ -15,7 +15,7 @@ locale: en
 tags:
   - engineering
   - agentic
-translation: /es/blog/que-es-un-agente-en-30-lineas-de-typescript/
+translation: /es/blog/agentes-de-ia-en-terminos-simples/
 ---
 
 The words *agent* and *agentic* have been buzzing around so often that it is genuinely hard to see what is behind the jargon. It has started to sound like something only large companies can build. It is not. The structure fits in less than a hundred lines of TypeScript, and once you can see it, the word loses every bit of its mystery.

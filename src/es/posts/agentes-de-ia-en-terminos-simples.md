@@ -1,11 +1,11 @@
 ---
 title: "Agentes de IA en términos simples"
-description: "La palabra agente perdió casi todo su significado. La forma más rápida de recuperarlo es verlo en código. Tres piezas, un archivo corto."
+description: "Los agentes de IA suenan como algo que solo las empresas grandes pueden construir. No lo son. Acá está todo: un LLM, herramientas y un loop, en TypeScript que se lee en una pantalla."
 date: 2026-05-16
 layout: layouts/post-header-overlay.njk
-permalink: /es/blog/que-es-un-agente-en-30-lineas-de-typescript/index.html
+permalink: /es/blog/agentes-de-ia-en-terminos-simples/index.html
 author: Edwin Torres
-headerImage: /assets/images/blog/what-an-agent-is-in-30-lines-of-typescript-hero.jpg
+headerImage: /assets/images/blog/ai-agents-in-simple-terms-hero.jpg
 headerImageAlt: Una tabla de paddle BOGA turquesa descansando en diagonal sobre la arena tibia al atardecer.
 eleventyNavigation:
   key: Blog
@@ -15,7 +15,7 @@ locale: es
 tags:
   - ingeniería
   - agentes-de-ia
-translation: /en/blog/what-an-agent-is-in-30-lines-of-typescript/
+translation: /en/blog/ai-agents-in-simple-terms/
 ---
 
 Las palabras *agente* y *agentic* se usan tanto últimamente que realmente cuesta ver qué hay detrás de la jerga. Ya suena como algo que solo las empresas grandes pueden construir. No lo es. La estructura cabe en menos de cien líneas de TypeScript, y una vez que la ves, la palabra pierde todo su misterio.
