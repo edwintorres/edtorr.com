@@ -8,8 +8,6 @@ author: Edwin Torres
 headerImage: /assets/images/blog/when-ai-moves-non-determinism-inside-the-workflow-hero.jpg
 headerImageAlt: Arcos anaranjados y cálidos dentro de un auditorio, vistos desde el área de asientos hacia el escenario.
 locale: es
-draft: true
-eleventyExcludeFromCollections: true
 tags:
   - ingeniería
   - ingeniería-de-datos
