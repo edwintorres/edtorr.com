@@ -10,11 +10,22 @@
   {% set socialTitle = title or metadata.title or 'Edwin Torres' %}
   {% set socialDescription = description or metadata.description or 'I build technology to create better solutions for people.' %}
   {% set socialUrl = page.url | absoluteUrl(metadata.url) %}
+  {% set socialImageUrl = socialImage | absoluteUrl(metadata.url) %}
+  {% set socialImageMeta = socialImage | socialImageMetadata %}
 
   <!-- Open Graph Meta Tags (for Facebook, LinkedIn, etc.) -->
   <meta property="og:title" content="{{ socialTitle }}">
   <meta property="og:description" content="{{ socialDescription }}">
-  <meta property="og:image" content="{{ socialImage | absoluteUrl(metadata.url) }}">
+  <meta property="og:image" content="{{ socialImageUrl }}">
+  <meta property="og:image:secure_url" content="{{ socialImageUrl }}">
+  {% if socialImageMeta %}
+  <meta property="og:image:type" content="{{ socialImageMeta.type }}">
+  <meta property="og:image:width" content="{{ socialImageMeta.width }}">
+  <meta property="og:image:height" content="{{ socialImageMeta.height }}">
+  {% endif %}
+  {% if headerImageAlt %}
+  <meta property="og:image:alt" content="{{ headerImageAlt }}">
+  {% endif %}
   <meta property="og:url" content="{{ socialUrl }}">
   <meta property="og:type" content="{{ 'article' if tags and 'posts' in tags else 'website' }}">
 
@@ -22,7 +33,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ socialTitle }}">
   <meta name="twitter:description" content="{{ socialDescription }}">
-  <meta name="twitter:image" content="{{ socialImage | absoluteUrl(metadata.url) }}">
+  <meta name="twitter:image" content="{{ socialImageUrl }}">
+  {% if headerImageAlt %}
+  <meta name="twitter:image:alt" content="{{ headerImageAlt }}">
+  {% endif %}
   <meta name="twitter:url" content="{{ socialUrl }}">
 
   <!-- Canonical and hreflang -->
@@ -41,7 +55,7 @@
       "@type": "Article",
       "headline": {{ socialTitle | dump | safe }},
       "description": {{ socialDescription | dump | safe }},
-      "image": {{ (socialImage | absoluteUrl(metadata.url)) | dump | safe }},
+      "image": {{ socialImageUrl | dump | safe }},
       "author": {
         "@type": "Person",
         "name": {{ metadata.author.name | dump | safe }},

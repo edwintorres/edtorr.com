@@ -14,6 +14,81 @@ const pluginTOC = require("eleventy-plugin-nesting-toc");
 const imageProcess = require('./build/image-process');
 const crypto = require("crypto");
 
+function getJpegDimensions(buffer) {
+  if (buffer.length < 4 || buffer[0] !== 0xff || buffer[1] !== 0xd8) {
+    return undefined;
+  }
+
+  let offset = 2;
+  while (offset < buffer.length) {
+    if (buffer[offset] !== 0xff) {
+      offset += 1;
+      continue;
+    }
+
+    const marker = buffer[offset + 1];
+    const length = buffer.readUInt16BE(offset + 2);
+    if (
+      marker === 0xc0 ||
+      marker === 0xc1 ||
+      marker === 0xc2 ||
+      marker === 0xc3 ||
+      marker === 0xc5 ||
+      marker === 0xc6 ||
+      marker === 0xc7 ||
+      marker === 0xc9 ||
+      marker === 0xca ||
+      marker === 0xcb ||
+      marker === 0xcd ||
+      marker === 0xce ||
+      marker === 0xcf
+    ) {
+      return {
+        height: buffer.readUInt16BE(offset + 5),
+        width: buffer.readUInt16BE(offset + 7),
+        type: "image/jpeg",
+      };
+    }
+
+    offset += 2 + length;
+  }
+
+  return undefined;
+}
+
+function getPngDimensions(buffer) {
+  const isPng =
+    buffer.length >= 24 &&
+    buffer[0] === 0x89 &&
+    buffer[1] === 0x50 &&
+    buffer[2] === 0x4e &&
+    buffer[3] === 0x47;
+
+  if (!isPng) {
+    return undefined;
+  }
+
+  return {
+    width: buffer.readUInt32BE(16),
+    height: buffer.readUInt32BE(20),
+    type: "image/png",
+  };
+}
+
+function getSocialImageMetadata(imagePath) {
+  if (!imagePath || /^https?:\/\//i.test(imagePath)) {
+    return undefined;
+  }
+
+  const localPath = path.join(__dirname, "src", imagePath.replace(/^\//, ""));
+  if (!fs.existsSync(localPath)) {
+    return undefined;
+  }
+
+  const buffer = fs.readFileSync(localPath);
+  return getJpegDimensions(buffer) || getPngDimensions(buffer);
+}
+
 module.exports = function (eleventyConfig) {
   const langContent = { ...en, ...es };
 
@@ -76,6 +151,8 @@ module.exports = function (eleventyConfig) {
     return (collection || []).filter((item) => item?.data?.locale === localeCode);
   });
 
+  eleventyConfig.addFilter("socialImageMetadata", getSocialImageMetadata);
+
   // ✅ File Hashing Filter
   eleventyConfig.addFilter("hash", function (filepath) {
     const fullPath = path.join(__dirname, "public", filepath);
@@ -120,7 +197,6 @@ module.exports = function (eleventyConfig) {
   // ✅ Copy assets
   eleventyConfig.addPassthroughCopy({
     "src/assets/css": "assets/css",
-    "src/assets/images": "assets/images",
     "src/assets/images": "assets/images",
     "src/assets/js/app.js": "assets/js/app.js",
     "src/assets/js/contact.js": "assets/js/contact.js",
