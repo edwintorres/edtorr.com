@@ -7,8 +7,6 @@ author: Edwin Torres
 headerImage: /assets/images/blog/when-ai-moves-non-determinism-inside-the-workflow-hero.jpg
 headerImageAlt: Warm orange arches inside an auditorium, viewed from the seating area toward the stage.
 locale: en
-draft: true
-eleventyExcludeFromCollections: true
 translation: /es/blog/los-agentes-de-ia-cambian-donde-ocurre-la-planificacion/
 tags:
   - engineering
