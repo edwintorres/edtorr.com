@@ -1,5 +1,6 @@
 const sharp = require('sharp');
-const { join, extname } = require('path');
+const fs = require('fs');
+const { dirname, join, extname } = require('path');
 const generatePathFrom = require('./image-path');
 const render = require('./image-render');
 
@@ -9,6 +10,7 @@ const DEFAULT_AVIF_QUALITY = 50;
 const PLACEHOLDER_JPEG_QUALITY = 25;
 const PLACEHOLDER_WEBP_QUALITY = 15;
 const PLACEHOLDER_AVIF_QUALITY = 20;
+const pendingWrites = new Map();
 
 module.exports = ({ input, width, alt, lazy, className = 'shadow-black-transparent' }) => {
     const inputStream = sharp(join('./src', input));
@@ -18,7 +20,7 @@ module.exports = ({ input, width, alt, lazy, className = 'shadow-black-transpare
         webp: '.webp',
         avif: '.avif'
     });
-    const addExtensionToPath = generatePathFrom(input);
+    const addExtensionToPath = generatePathFrom(input, width);
 
     const supportsDensity = Number.isFinite(width) && width > 0;
     const retinaWidth = supportsDensity ? Math.round(width * 2) : undefined;
@@ -39,7 +41,46 @@ module.exports = ({ input, width, alt, lazy, className = 'shadow-black-transpare
     const resizeOptions = { fit: 'inside', withoutEnlargement: true };
     const placeholderWidth = supportsDensity ? Math.max(16, Math.floor(width / 4)) : undefined;
 
-    function createJpeg(outputPath, resizeWidth, qualityOptions = {}) {
+    function outputFile(outputPath) {
+        return join(outputDir, outputPath);
+    }
+
+    function ensureOutputDir(outputPath) {
+        fs.mkdirSync(dirname(outputFile(outputPath)), { recursive: true });
+    }
+
+    function readExistingImage(outputPath, needsMetadata = false) {
+        const filePath = outputFile(outputPath);
+        if (!fs.existsSync(filePath)) {
+            return undefined;
+        }
+
+        if (!needsMetadata) {
+            return Promise.resolve({ cached: true });
+        }
+
+        return sharp(filePath).metadata().catch(() => undefined);
+    }
+
+    function writeOnce(outputPath, writeImage) {
+        if (pendingWrites.has(outputPath)) {
+            return pendingWrites.get(outputPath);
+        }
+
+        const writePromise = writeImage().finally(() => {
+            pendingWrites.delete(outputPath);
+        });
+        pendingWrites.set(outputPath, writePromise);
+        return writePromise;
+    }
+
+    function createJpeg(outputPath, resizeWidth, qualityOptions = {}, needsMetadata = false) {
+        const existingImage = readExistingImage(outputPath, needsMetadata);
+        if (existingImage) {
+            return existingImage;
+        }
+
+        ensureOutputDir(outputPath);
         const jpegOptions = {
             quality: qualityOptions.quality ?? DEFAULT_JPEG_QUALITY,
             progressive: true,
@@ -51,13 +92,19 @@ module.exports = ({ input, width, alt, lazy, className = 'shadow-black-transpare
             stream.resize(resizeWidth, null, resizeOptions);
         }
 
-        return stream
+        return writeOnce(outputPath, () => stream
             .jpeg(jpegOptions)
-            .toFile(join(outputDir, outputPath))
-            .catch((error) => console.error('Error in createJpeg function: ', error));
+            .toFile(outputFile(outputPath))
+            .catch((error) => console.error('Error in createJpeg function: ', error)));
     }
 
     function createWebp(outputPath, resizeWidth, qualityOptions = {}) {
+        const existingImage = readExistingImage(outputPath);
+        if (existingImage) {
+            return existingImage;
+        }
+
+        ensureOutputDir(outputPath);
         const webpOptions = {
             quality: qualityOptions.quality ?? DEFAULT_WEBP_QUALITY,
             smartSubsample: true
@@ -68,13 +115,19 @@ module.exports = ({ input, width, alt, lazy, className = 'shadow-black-transpare
             stream.resize(resizeWidth, null, resizeOptions);
         }
 
-        return stream
+        return writeOnce(outputPath, () => stream
             .webp(webpOptions)
-            .toFile(join(outputDir, outputPath))
-            .catch((error) => console.error('Error in createWebp function: ', error));
+            .toFile(outputFile(outputPath))
+            .catch((error) => console.error('Error in createWebp function: ', error)));
     }
 
     function createAvif(outputPath, resizeWidth, qualityOptions = {}) {
+        const existingImage = readExistingImage(outputPath);
+        if (existingImage) {
+            return existingImage;
+        }
+
+        ensureOutputDir(outputPath);
         const avifOptions = {
             quality: qualityOptions.quality ?? DEFAULT_AVIF_QUALITY
         };
@@ -84,15 +137,15 @@ module.exports = ({ input, width, alt, lazy, className = 'shadow-black-transpare
             stream.resize(resizeWidth, null, resizeOptions);
         }
 
-        return stream
+        return writeOnce(outputPath, () => stream
             .avif(avifOptions)
-            .toFile(join(outputDir, outputPath))
-            .catch((error) => console.error('Error in createAvif function: ', error));
+            .toFile(outputFile(outputPath))
+            .catch((error) => console.error('Error in createAvif function: ', error)));
     }
 
     if (lazy) {
         return Promise.all([
-            createJpeg(paths.fallbackPath, width),
+            createJpeg(paths.fallbackPath, width, {}, true),
             createWebp(paths.webpPath, width),
             createAvif(paths.avifPath, width),
             createJpeg(paths.fallbackPlaceholder, placeholderWidth, { quality: PLACEHOLDER_JPEG_QUALITY }),
@@ -115,7 +168,7 @@ module.exports = ({ input, width, alt, lazy, className = 'shadow-black-transpare
     }
 
     return Promise.all([
-        createJpeg(paths.fallbackPath, width),
+        createJpeg(paths.fallbackPath, width, {}, true),
         createWebp(paths.webpPath, width),
         createAvif(paths.avifPath, width)
     ].concat(supportsDensity ? [
