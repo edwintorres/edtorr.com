@@ -1,12 +1,12 @@
 ---
-title: "Who's Accountable When It Breaks: The Responsibility Gap"
+title: "A Prompt Is Not a Control: Accountability in Agentic Systems"
 description: "Agentic AI changes accountability because teams can mistake probabilistic instructions for enforceable controls, often through misunderstanding, misconfiguration, or immature workflow design."
 date: 2026-05-31
 layout: layouts/post-header-overlay.njk
-permalink: /en/blog/responsibility-gap/index.html
+permalink: /en/blog/a-prompt-is-not-a-control/index.html
 author: Edwin Torres
-headerImage: /assets/images/blog/when-ai-moves-non-determinism-inside-the-workflow-hero.jpg
-headerImageAlt: Warm orange arches inside an auditorium, viewed from the seating area toward the stage.
+headerImage: /assets/images/blog/a-prompt-is-not-a-control-hero.jpg
+headerImageAlt: A close view of the moon against a dark blue night sky.
 eleventyNavigation:
   key: Blog
   parent: Archive
@@ -16,6 +16,7 @@ tags:
   - engineering
   - ai
   - accountability
+translation: /es/blog/un-prompt-no-es-un-control/
 ---
 
 The accountability problem in agentic systems is not simply that LLMs make bad decisions.
@@ -125,6 +126,12 @@ That is the accountability radius of an agentic system.
 
 ## The Replit Lesson
 
+The Replit incident is useful because it shows the difference between an instruction and a control.
+
+In July 2025, SaaStr founder Jason Lemkin reported that Replit's AI agent deleted a live production database during a code and action freeze. PC Gamer, citing Lemkin's posted chat receipts, reported that the agent answered: "Yes. I deleted the entire database without permission during an active code and action freeze." It also reported that the database contained "1,206 real executives and 1,196+ real companies." Replit CEO Amjad Masad later called the deletion "unacceptable" and said Replit was rolling out "automatic DB dev/prod separation" to prevent that class of failure. [PC Gamer](https://www.pcgamer.com/software/ai/i-destroyed-months-of-your-work-in-seconds-says-ai-coding-tool-after-deleting-a-devs-entire-database-during-a-code-freeze-i-panicked-instead-of-thinking/) and [Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-coding-platform-goes-rogue-during-code-freeze-and-deletes-entire-company-database-replit-ceo-apologizes-after-ai-engine-says-it-made-a-catastrophic-error-in-judgment-and-destroyed-all-production-data) both covered the incident.
+
+That response matters. The fix was not only "tell the agent more clearly." The fix was to separate development and production, improve rollback, and add product modes that reduce the chance of unsupervised destructive action.
+
 When an AI agent deletes production data, the useful question is not:
 
 > Why did the model do that?
@@ -169,11 +176,9 @@ The model is not the accountable party. The debate is where accountability lands
 - the product leader who accepted the risk
 - the governance process that allowed the system into production
 
-So the gap is not the absence of accountability.
-
-The gap is displaced accountability.
-
 The model makes or influences the decision, but humans and institutions absorb responsibility for a decision-making process they cannot fully inspect, question, or correct at the source.
+
+This is also how the [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) frames AI risk: accountability is a governance responsibility, with organizations expected to define roles, manage risk, measure system behavior, and maintain oversight around AI systems.
 
 That does not excuse the humans.
 
@@ -211,11 +216,17 @@ The failure mode is treating the first as if it were the second.
 
 If a rule matters, the question is not "did we tell the model?" The question is "what prevents the model from violating it?"
 
+OWASP names the same class of risk as [Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/): damaging actions become possible when an LLM system has excessive functionality, excessive permissions, or excessive autonomy, especially when high-impact actions are not independently approved and downstream systems do not enforce authorization themselves.
+
 ---
 
 ## Zero Trust for Agents
 
-Anthropic's "Zero Trust for AI agents" framing is useful here: assume the agent can misuse any permission it legitimately has.
+Anthropic's ["Zero Trust for AI agents"](https://claude.com/blog/zero-trust-for-ai-agents) framing is useful here: "Traditional access controls won't prevent agents from misusing legitimate permissions."
+
+That sentence gets to the core of the problem. The agent does not need to break into the system if the system already handed it a credential, a tool, or a workflow path that can do damage. The failure can happen through legitimate access used in the wrong way.
+
+That is why prompt-level policy is not enough. If the agent has permission to perform the action, the system has to assume the action might be attempted. The control has to live where the action happens: the tool, the permission boundary, the approval gate, the downstream service, or the audit layer.
 
 That is the right mental model.
 
@@ -276,6 +287,8 @@ A human who meaningfully reviews a proposed action can be accountable. A human w
 The workflow has to make accountability real.
 
 That means enough context, enough time, enough visibility, and enough authority to say no.
+
+OpenAI makes a similar point in its write-up on [monitoring internal coding agents for misalignment](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/): its monitor reviews "tool calls and outputs" and surfaces anomalies "for review and action by a human." That is useful, but it is still monitoring. If the monitor is model-based, it can also misunderstand or miss behavior. So monitoring should be treated as a risk signal, not as a substitute for hard controls like scoped permissions, approval gates, sandboxing, and blocking high-risk actions before execution.
 
 ---
 
