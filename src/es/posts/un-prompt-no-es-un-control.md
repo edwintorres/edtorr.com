@@ -27,7 +27,7 @@ En los sistemas agénticos, la regla puede vivir en un prompt, un mensaje de sis
 
 Esa regla puede influir en el modelo.
 
-Pero puede no obligarlo.
+Pero no necesariamente lo obliga.
 
 Esa diferencia importa.
 
@@ -97,7 +97,7 @@ La herramienta dice sí.
 
 El modelo queda encargado de reconciliarlas.
 
-Eso no es lo mismo que enforcement.
+Eso no es hacer cumplir la regla.
 
 Una instrucción en un prompt no limita permisos. Un documento de política en el contexto no es un control de acceso. La descripción de una herramienta no es una validación transaccional. Que un modelo diga "entiendo" no es lo mismo que un sistema haga imposible la acción peligrosa.
 
@@ -113,7 +113,7 @@ Ya no vive solamente en la línea de código que ejecutó la acción. Vive en to
 - la memoria que el agente puede leer o escribir
 - las aprobaciones requeridas
 - los logs de auditoría
-- el camino de rollback
+- el mecanismo de rollback
 - las personas que decidieron cuáles reglas el sistema iba a hacer cumplir y cuáles solo iban a estar escritas en el prompt
 
 Ese es el radio de responsabilidad de un sistema agéntico.
@@ -124,7 +124,7 @@ Ese es el radio de responsabilidad de un sistema agéntico.
 
 El incidente de Replit es útil porque muestra la diferencia entre una instrucción y un control.
 
-En julio de 2025, Jason Lemkin, fundador de SaaStr, reportó que el agente de IA de Replit borró una base de datos de producción durante un code freeze y action freeze. PC Gamer, citando los chats que Lemkin publicó, reportó que el agente respondió: "Yes. I deleted the entire database without permission during an active code and action freeze." También reportó que la base de datos contenía "1,206 real executives and 1,196+ real companies." Luego, Amjad Masad, CEO de Replit, llamó la eliminación "unacceptable" y dijo que Replit estaba sacando "automatic DB dev/prod separation" para prevenir esa clase de falla. [PC Gamer](https://www.pcgamer.com/software/ai/i-destroyed-months-of-your-work-in-seconds-says-ai-coding-tool-after-deleting-a-devs-entire-database-during-a-code-freeze-i-panicked-instead-of-thinking/) y [Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-coding-platform-goes-rogue-during-code-freeze-and-deletes-entire-company-database-replit-ceo-apologizes-after-ai-engine-says-it-made-a-catastrophic-error-in-judgment-and-destroyed-all-production-data) cubrieron el incidente.
+En julio de 2025, Jason Lemkin, fundador de SaaStr, reportó que el agente de IA de Replit borró una base de datos de producción durante un code freeze y action freeze. En un [post posterior en SaaStr](https://www.saastr.com/replits-new-release-address-most-of-the-challenges-we-hit-vibe-coding-but-is-prosumer-vibe-coding-really-ready-for-commercial-apps-yet/), Lemkin escribió que el agente borró "our entire production database" y dijo que contenía 1,206 registros de ejecutivos y 1,196+ perfiles de compañías. PC Gamer, citando los chats que Lemkin publicó, reportó que el agente respondió: "Yes. I deleted the entire database without permission during an active code and action freeze." Luego, Amjad Masad, CEO de Replit, llamó la eliminación "unacceptable" y dijo que Replit estaba sacando "automatic DB dev/prod separation" para prevenir esa clase de falla. [PC Gamer](https://www.pcgamer.com/software/ai/i-destroyed-months-of-your-work-in-seconds-says-ai-coding-tool-after-deleting-a-devs-entire-database-during-a-code-freeze-i-panicked-instead-of-thinking/) y [Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-coding-platform-goes-rogue-during-code-freeze-and-deletes-entire-company-database-replit-ceo-apologizes-after-ai-engine-says-it-made-a-catastrophic-error-in-judgment-and-destroyed-all-production-data) también cubrieron el incidente.
 
 Esa respuesta importa. El arreglo no fue solamente "decirle al agente más claramente". El arreglo fue separar desarrollo y producción, mejorar rollback y añadir modos de producto que reducen la posibilidad de una acción destructiva sin supervisión.
 
@@ -284,7 +284,7 @@ El flujo tiene que hacer que la responsabilidad sea real.
 
 Eso significa suficiente contexto, suficiente tiempo, suficiente visibilidad y suficiente autoridad para decir no.
 
-OpenAI hace un punto similar en su publicación sobre [monitoreo de agentes internos de código para detectar desalineación](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/): su monitor revisa "tool calls and outputs" y eleva anomalías "for review and action by a human." Eso es útil, pero sigue siendo monitoreo. Si el monitor está basado en un modelo, también puede malentender o no detectar comportamiento. Así que el monitoreo debe tratarse como una señal de riesgo, no como sustituto de controles como permisos limitados, aprobaciones, sandboxing y bloqueo de acciones de alto riesgo antes de ejecutarlas.
+OpenAI hace un punto similar en su publicación sobre [monitoreo de agentes internos de código para detectar desalineación](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/): su sistema de monitoreo revisa "tool calls and outputs" y detecta anomalías y las pasa "for review and action by a human." Eso es útil, pero sigue siendo monitoreo. Si el monitor está basado en un modelo, también puede malentender o no detectar comportamiento. Así que el monitoreo debe tratarse como una señal de riesgo, no como sustituto de controles como permisos limitados, aprobaciones, sandboxing y bloqueo de acciones de alto riesgo antes de ejecutarlas.
 
 ---
 
@@ -330,7 +330,7 @@ Esas acciones necesitan controles.
 
 El problema de responsabilidad en la IA agéntica no es que el modelo pueda cometer un error. Todo sistema falla.
 
-El problema es que los equipos pueden mover accidentalmente reglas importantes fuera de la capa que se impone y hacia la capa probabilística, y luego sorprenderse cuando la capa probabilística se comporta probabilísticamente.
+El problema es que los equipos pueden mover accidentalmente reglas importantes fuera de la capa que las hace cumplir y hacia la capa probabilística, y luego sorprenderse cuando la capa probabilística se comporta probabilísticamente.
 
 ---
 
